@@ -13,5 +13,5 @@ cp inventory.example inventory
 Run the playbook, giving the sudo password on the server.
 
 ```
-ansible-playbook play.yaml --ask-become-pass
+ansible-playbook server.yaml --ask-become-pass
 ```
