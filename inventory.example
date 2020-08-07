@@ -1,6 +1,0 @@
-[all]
-# titanium-server ansible_host=192.168.1.22
-# titanium-server ansible_connection=local ansible_host=localhost
-
-[server]
-titanium-server
