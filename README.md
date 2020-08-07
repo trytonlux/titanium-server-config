@@ -4,14 +4,16 @@ Playbook for Titanium-Server.
 
 # Running
 
-Copy and create the inventory file. Then edit the new inventory file, uncommenting the appropriate line.
+Create inventory file:
 
 ```
-cp inventory.example inventory
+cp inventory.yaml.example inventory.yaml
 ```
 
-Run the playbook, giving the sudo password on the server.
+Replace `<Remote-IP>` with IP of server.
+
+Run the playbook:
 
 ```
-ansible-playbook server.yaml --ask-become-pass
+ansible-playbook server.yaml
 ```
