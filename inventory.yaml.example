@@ -1,0 +1,5 @@
+---
+all:
+  hosts:
+    titanium-server:
+      ansible_host: <Remote-IP>
