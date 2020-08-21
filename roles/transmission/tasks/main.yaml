@@ -3,3 +3,8 @@
   package:
     name: transmission-daemon
     state: present
+
+- name: Enable transmission-daemon.service
+  systemd:
+    name: transmission-daemon
+    enabled: true
