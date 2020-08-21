@@ -1,7 +1,5 @@
 ---
 - name: Install podman
   package:
-    name: "{{ item }}"
+    name: podman
     state: present
-  with_items:
-    - podman
