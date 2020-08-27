@@ -8,3 +8,11 @@
   systemd:
     name: transmission-daemon
     enabled: true
+
+- name: Disable rpc-whitelist
+  json_patch:
+    src: "/var/lib/transmission/.config/transmission-daemon/settings.json"
+    operations:
+      - op: replace
+        path: "/rpc-whitelist-enabled"
+        value: "false"
