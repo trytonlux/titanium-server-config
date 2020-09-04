@@ -1,0 +1,4 @@
+---
+- name: Pull Jellfin image
+  podman_image:
+    name: docker.io/linuxserver/jellyfin
