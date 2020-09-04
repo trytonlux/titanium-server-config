@@ -9,8 +9,10 @@
     port: 9091/tcp
     permanent: true
     state: enabled
+  register: rule
 
 - name: Restart firewalld
   systemd:
     name: firewalld
     state: reloaded
+  when: rule.changed
