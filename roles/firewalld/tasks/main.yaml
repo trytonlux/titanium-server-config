@@ -11,6 +11,13 @@
     state: enabled
   register: rule
 
+- name: Open port for Jellyfin
+  firewalld:
+    port: 8096/tcp
+    permanent: true
+    state: enabled
+  register: rule
+
 - name: Restart firewalld
   systemd:
     name: firewalld
