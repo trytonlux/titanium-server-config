@@ -2,6 +2,12 @@
 
 Playbook for Titanium-Server.
 
+# Dependencies
+
+```
+ansible-galaxy install --roles-path=roles -r roles/requirements.yaml
+```
+
 # Running
 
 Create inventory file:
