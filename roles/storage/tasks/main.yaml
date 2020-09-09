@@ -1,0 +1,6 @@
+---
+- name: Create /storage directory
+  file:
+    path: "/storage"
+    state: directory
+    mode: "0755"
