@@ -11,7 +11,9 @@
   vars:
     container_image: "docker.io/linuxserver/jellyfin"
     container_name: "jellyfin"
+    container_state: running
     container_run_args: >-
+      --rm
       -e PUID=1000
       -e PGID=1000
       -e TZ=America/Toronto
