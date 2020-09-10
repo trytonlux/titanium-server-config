@@ -17,6 +17,6 @@
       -e TZ=America/Toronto
       -p 8096:8096
       -v /storage/container/jellyfin:/config:Z
-      -v /storage/media:/data
+      -v /storage/media:/data:Z
   import_role:
     name: "podman-container-systemd"
