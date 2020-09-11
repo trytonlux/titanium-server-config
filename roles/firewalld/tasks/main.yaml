@@ -4,6 +4,13 @@
     name: python3-firewall
     state: present
 
+- name: Open port for HTTP
+  firewalld:
+    service: http
+    permanent: true
+    state: enabled
+  register: rule
+
 - name: Open port for Transmission
   firewalld:
     port: 9091/tcp
