@@ -4,7 +4,7 @@
     name: transmission-daemon
     state: present
 
-- name: Enable transmission-daemon.service
+- name: Enable transmission-daemon
   systemd:
     name: transmission-daemon
     enabled: true
