@@ -8,6 +8,7 @@
   systemd:
     name: transmission-daemon
     enabled: true
+    state: started
 
 - name: Disable rpc-whitelist
   json_patch:
