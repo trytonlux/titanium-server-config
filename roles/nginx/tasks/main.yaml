@@ -4,7 +4,15 @@
     name: nginx
     state: present
 
-- name: Enable nginx
+- name: Copy NGINX config
+  copy:
+    src: "{{ role_path }}/files/nginx.conf"
+    dest: "/etc/nginx/nginx.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+
+- name: Enable NGINX
   systemd:
     name: nginx
     enabled: true
