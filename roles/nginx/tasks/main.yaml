@@ -4,6 +4,12 @@
     name: nginx
     state: present
 
+- name: Set httpd_can_network_connect flag
+  seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
+
 - name: Copy NGINX config
   copy:
     src: "{{ role_path }}/files/nginx.conf"
