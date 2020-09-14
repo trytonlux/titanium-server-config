@@ -12,6 +12,14 @@
     group: "root"
     mode: "0644"
 
+- name: Copy NGINX proxy config
+  copy:
+    src: "{{ role_path }}/files/proxy.conf"
+    dest: "/etc/nginx/proxy.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+
 - name: Copy conf.d configs
   copy:
     src: "{{ item }}"
