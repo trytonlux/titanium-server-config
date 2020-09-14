@@ -12,7 +12,7 @@
 
 - name: Set a higher value for rmem_max
   sysctl:
-    name: "net.core.wmem_ma"
+    name: "net.core.wmem_max"
     value: "1048576"
     state: present
 
