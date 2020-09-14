@@ -12,6 +12,15 @@
     group: "root"
     mode: "0644"
 
+- name: Copy conf.d configs
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/nginx/conf.d/{{ item | basename }}"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  with_fileglob: conf.d/*
+
 - name: Enable NGINX
   systemd:
     name: nginx
