@@ -22,6 +22,11 @@
     enabled: true
     state: started
 
+- name: Stop transmission-daemon
+  systemd:
+    name: transmission-daemon
+    state: stopped
+
 - name: Disable rpc-whitelist
   json_patch:
     src: "/var/lib/transmission/.config/transmission-daemon/settings.json"
@@ -29,3 +34,16 @@
       - op: replace
         path: "/rpc-whitelist-enabled"
         value: "false"
+
+- name: Disable rpc-host-whitelist
+  json_patch:
+    src: "/var/lib/transmission/.config/transmission-daemon/settings.json"
+    operations:
+      - op: replace
+        path: "/rpc-host-whitelist-enabled"
+        value: "false"
+
+- name: Start transmission-daemon
+  systemd:
+    name: transmission-daemon
+    state: started
