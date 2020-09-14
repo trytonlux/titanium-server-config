@@ -4,6 +4,18 @@
     name: transmission-daemon
     state: present
 
+- name: Set a higher value for rmem_max
+  sysctl:
+    name: "net.core.rmem_max"
+    value: "4194304"
+    state: present
+
+- name: Set a higher value for rmem_max
+  sysctl:
+    name: "net.core.wmem_ma"
+    value: "1048576"
+    state: present
+
 - name: Enable transmission-daemon
   systemd:
     name: transmission-daemon
