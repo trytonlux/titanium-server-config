@@ -1,5 +1,5 @@
 ---
-- name: Create library directory
+- name: Create volume directory
   file:
     path: "/storage/container/jellyfin"
     state: directory
