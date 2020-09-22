@@ -6,6 +6,30 @@
     <title>Titanium Server</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <h1>Titanium Server</h1>
+
+    <ul id="link-list"></ul>
+
+    <script>
+        const url = window.location.href.split("//")[1];
+        const list = document.getElementById("link-list");
+
+        function get_link_url(subdomain)
+        {
+            return "http://"
+                    .concat(subdomain.toLowerCase())
+                    .concat(".")
+                    .concat(url);
+        }
+
+        function add_link(subdomain)
+        {
+            const tag = `<li><a href=${get_link_url(subdomain)}>${subdomain}</a></li>`;
+            list.innerHTML += tag;
+        }
+
+        add_link("Transmission");
+        add_link("Jellyfin");
+    </script>
 </body>
 </html>
