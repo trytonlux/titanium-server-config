@@ -35,6 +35,19 @@
     mode: "0644"
   with_fileglob: conf.d/*
 
+- name: Create /var/www
+  file:
+    path: "/var/www"
+    state: directory
+
+- name: Copy index.html
+  copy:
+    src: "{{ role_path }}/files/index.html"
+    dest: "/var/www/index.html"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+
 - name: Enable NGINX
   systemd:
     name: nginx
