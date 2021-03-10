@@ -17,3 +17,6 @@ destroy: ## Destroy the infrastructure
 
 ssh: ## SSH into the VM
 	@ssh fedora@titanium-server.vm
+
+provision: ## Run the Ansible playbook
+	@ansible-playbook provision.yaml
