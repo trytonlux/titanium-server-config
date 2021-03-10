@@ -14,3 +14,6 @@ apply: ## Build the infrastructure
 
 destroy: ## Destroy the infrastructure
 	@terraform destroy -auto-approve
+
+ssh: ## SSH into the VM
+	@ssh fedora@titanium-server.vm
