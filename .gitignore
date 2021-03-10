@@ -1,4 +1,3 @@
-inventory.yaml
+.terraform
 
-roles/podman-container-systemd
-roles/systemli.apt_repositories
+inventory.yaml
