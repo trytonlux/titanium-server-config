@@ -20,3 +20,6 @@ ssh: ## SSH into the VM
 
 provision: ## Run the Ansible playbook
 	@ansible-playbook provision.yaml
+
+deploy: ## Build and provision the VM
+deploy: apply provision
