@@ -6,11 +6,11 @@ help:
 up:
 	@terraform init
 
-plan: ## Show the Terraform plan
+plan: ## Plan out the infrastructure to build/change
 	@terraform plan
 
 apply: ## Build the infrastructure
-	@terraform apply
+	@terraform apply -auto-approve
 
 destroy: ## Destroy the infrastructure
-	@terraform destroy
+	@terraform destroy -auto-approve
