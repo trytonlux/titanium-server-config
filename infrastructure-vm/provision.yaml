@@ -1,0 +1,10 @@
+---
+- name: Provision VM
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Update Packages
+      package:
+        name: "*"
+        state: latest
