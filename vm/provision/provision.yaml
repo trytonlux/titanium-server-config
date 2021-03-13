@@ -5,6 +5,6 @@
 
   tasks:
     - name: Update Packages
-      package:
-        name: "*"
-        state: latest
+      pacman:
+        update_cache: true
+        upgrade: true
