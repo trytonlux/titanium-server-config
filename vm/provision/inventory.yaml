@@ -3,4 +3,4 @@ all:
   hosts:
     titanium-server:
       ansible_host: titanium-server.vm
-      ansible_user: fedora
+      ansible_user: tryton-vanmeer
