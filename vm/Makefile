@@ -4,20 +4,16 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ".:*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 init: ## Initializes Terraform
-	@cd infrastructure; \
-	terraform init
+	@terraform -chdir=infrastructure init
 
 plan: ## Plan out the infrastructure to build/change
-	@cd infrastructure; \
-	terraform plan
+	@terraform -chdir=infrastructure plan
 
 apply: ## Build the infrastructure
-	@cd infrastructure; \
-	terraform apply -auto-approve
+	@terraform -chdir=infrastructure apply -auto-approve
 
 destroy: ## Destroy the infrastructure
-	@cd infrastructure; \
-	terraform destroy -auto-approve
+	@terraform -chdir=infrastructure destroy -auto-approve
 
 ssh: ## SSH into the VM
 	@ssh titanium-server.vm
