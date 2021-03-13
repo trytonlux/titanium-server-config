@@ -4,6 +4,7 @@ Creates a VM to test the Ansible playbook against.
 
 ```
 $ make
+init:                          Initializes Terraform
 plan:                          Plan out the infrastructure to build/change
 apply:                         Build the infrastructure
 destroy:                       Destroy the infrastructure
