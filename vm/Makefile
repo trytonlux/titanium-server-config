@@ -20,7 +20,7 @@ destroy: ## Destroy the infrastructure
 	terraform destroy -auto-approve
 
 ssh: ## SSH into the VM
-	@ssh fedora@titanium-server.vm
+	@ssh arch@titanium-server.vm
 
 provision: ## Run the Ansible playbook
 	@cd provision; \
