@@ -2,8 +2,8 @@
 
 IaC for Titanium Server
 
-# References
+## References
 
-## NGINX Reverse Proxy
+### NGINX Reverse Proxy
 
 https://github.com/linuxserver/reverse-proxy-confs
