@@ -1,0 +1,7 @@
+---
+- name: Provision VM
+  hosts: vm
+  become: true
+
+  roles:
+    - vm
