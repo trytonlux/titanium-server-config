@@ -1,16 +1,16 @@
-.PHONY: help vm-init vm-deploy vm-destroy vm-ssh
+.PHONY: help init-vm deploy-vm destroy-vm ssh-vm
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ".:*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-vm-init: ## Initializes Terraform
+init-vm: ## Initializes Terraform
 	@terraform -chdir=vm init
 
-vm-deploy: vm-init ## Create the VM
+deploy-vm: init-vm ## Create the VM
 	@terraform -chdir=vm apply -auto-approve
 
-vm-destroy: ## Destroy the VM
+destroy-vm: ## Destroy the VM
 	@terraform -chdir=vm destroy -auto-approve
 
-vm-ssh: ## SSH into the VM
+ssh-vm: ## SSH into the VM
 	@ssh titanium-server.vm
