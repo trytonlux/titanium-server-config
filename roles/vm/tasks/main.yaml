@@ -4,3 +4,9 @@
   dnf:
     name: "*"
     state: latest
+
+- name: Install Fedora Server Edition Group
+  become: true
+  dnf:
+    name: "@Fedora Server Edition"
+    state: present
