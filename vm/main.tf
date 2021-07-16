@@ -15,7 +15,7 @@ terraform {
 locals {
   hostname = "titanium-server"
   ssh_key = "~/.ssh/id_rsa"
-  cloud_image_url = "https://mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-cloudimg-20210401.18564.qcow2"
+  cloud_image_url = "https://download.fedoraproject.org/pub/fedora/linux/releases/34/Cloud/x86_64/images/Fedora-Cloud-Base-34-1.2.x86_64.qcow2"
 }
 
 provider "libvirt" {
