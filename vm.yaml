@@ -1,6 +1,0 @@
----
-- name: Provision VM
-  hosts: vm
-
-  roles:
-    - vm
