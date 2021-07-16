@@ -1,5 +1,5 @@
 ---
 - name: Update Packages
-  pacman:
-    update_cache: true
-    upgrade: true
+  dnf:
+    name: "*"
+    state: latest
