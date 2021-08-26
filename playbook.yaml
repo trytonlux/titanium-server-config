@@ -12,3 +12,7 @@
     dnf:
       name: "@Fedora Server Edition"
       state: present
+
+- hosts: all
+  roles:
+    - firewalld
