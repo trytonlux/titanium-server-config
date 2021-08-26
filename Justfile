@@ -10,3 +10,6 @@
 
 @vm-ssh:
     ssh titanium-server.vm
+
+@vm-provision:
+    ansible-playbook --limit vm playbooks/vm.yaml
