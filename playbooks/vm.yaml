@@ -1,8 +1,4 @@
 ---
 - hosts: vm
-  tasks:
-    - name: Ensure Packages are Up-to-Date
-      become: true
-      dnf:
-        name: "*"
-        state: latest
+  roles:
+    - vm
