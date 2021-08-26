@@ -12,4 +12,4 @@
     ssh admin@titanium-server.vm
 
 @vm-provision:
-    ansible-playbook --limit vm playbooks/vm.yaml
+    ansible-playbook --limit vm playbook.yaml
