@@ -1,11 +1,11 @@
 ---
-- name: Install firewalld python bindings
+- name: Ensure firewalld Python Bindings are Installed
   become: true
   package:
     name: python3-firewall
     state: present
 
-- name: Open port for HTTP
+- name: Permit Traffic for HTTP
   become: true
   firewalld:
     service: http
@@ -13,7 +13,7 @@
     state: enabled
   register: rule
 
-- name: Open port for Transmission
+- name: Permit Traffic for Transmission
   become: true
   firewalld:
     port: 9091/tcp
@@ -21,7 +21,7 @@
     state: enabled
   register: rule
 
-- name: Open port for Jellyfin
+- name: Permit Traffic for Jellyfin
   become: true
   firewalld:
     port: 8096/tcp
@@ -29,7 +29,7 @@
     state: enabled
   register: rule
 
-- name: Restart firewalld
+- name: Restart firewalld on Rule Changes
   become: true
   systemd:
     name: firewalld
