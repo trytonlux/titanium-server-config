@@ -34,4 +34,6 @@
   systemd:
     name: firewalld
     state: reloaded
+  # TODO: registers above overwrite each other. This only runs when last rule changes.
+  # Should prob use a handler
   when: rule.changed
