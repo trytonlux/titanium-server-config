@@ -1,11 +1,11 @@
 ---
-- name: Update Packages
+- name: Ensure Packages are Up-to-Date
   become: true
   dnf:
     name: "*"
     state: latest
 
-- name: Install Fedora Server Edition Group
+- name: Ensure 'Fedora Server Edition' Group is installed
   become: true
   dnf:
     name: "@Fedora Server Edition"
