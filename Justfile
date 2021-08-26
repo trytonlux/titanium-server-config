@@ -9,7 +9,7 @@
     terraform -chdir=vm destroy --auto-approve
 
 @vm-ssh:
-    ssh titanium-server.vm
+    ssh admin@titanium-server.vm
 
 @vm-provision:
     ansible-playbook --limit vm playbooks/vm.yaml
