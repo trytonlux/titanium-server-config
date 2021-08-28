@@ -5,6 +5,13 @@
     name: python3-firewall
     state: present
 
+- name: Ensure firewalld Service is Enabled/Started
+  become: true
+  systemd:
+    name: firewalld
+    enabled: true
+    state: started
+
 - name: Permit Traffic for HTTP
   become: true
   firewalld:
@@ -12,7 +19,6 @@
     permanent: true
     immediate: true
     state: enabled
-  notify: Restart Firewall
 
 - name: Permit Traffic for Transmission
   become: true
@@ -21,7 +27,6 @@
     permanent: true
     immediate: true
     state: enabled
-  notify: Restart Firewall
 
 - name: Permit Traffic for Jellyfin
   become: true
@@ -30,4 +35,3 @@
     permanent: true
     immediate: true
     state: enabled
-  notify: Restart Firewall
