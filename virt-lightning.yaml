@@ -2,5 +2,5 @@
   distro: fedora-34
   memory: 2048
   networks:
-    - network: default
-      ipv4: 192.168.122.22
+    - network: virt-lightning
+      ipv4: 192.168.123.22
