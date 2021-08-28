@@ -4,11 +4,8 @@
 @fetch:
     vl fetch fedora-34
 
-@vm:
-    vl up
-
-@vm-down:
-    vl down
+@vm state="up":
+    vl {{state}}
 
 @vm-ssh:
     vl ssh titanium-server
