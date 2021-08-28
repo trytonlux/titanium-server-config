@@ -10,6 +10,7 @@
   firewalld:
     service: http
     permanent: true
+    immediate: true
     state: enabled
   notify: Restart Firewall
 
@@ -18,6 +19,7 @@
   firewalld:
     port: 9091/tcp
     permanent: true
+    immediate: true
     state: enabled
   notify: Restart Firewall
 
@@ -26,5 +28,6 @@
   firewalld:
     port: 8096/tcp
     permanent: true
+    immediate: true
     state: enabled
   notify: Restart Firewall
