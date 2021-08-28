@@ -7,8 +7,11 @@
 @vm state="up":
     vl {{state}}
 
-@vm-ssh:
-    vl ssh titanium-server
+ssh host="vm":
+    #!/bin/sh
+    if [ "{{host}}" == "vm" ]; then
+        vl ssh titanium-server
+    fi
 
 @provision host="vm":
     ansible-playbook --limit {{host}} playbook.yaml
