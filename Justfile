@@ -1,6 +1,9 @@
 @_default:
     just --list
 
+@fetch:
+    vl fetch fedora-34
+
 @vm:
     vl up
 
