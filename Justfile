@@ -12,6 +12,7 @@ ssh host="vm":
     if [ "{{host}}" == "vm" ]; then
         vl ssh titanium-server
     fi
+    exit 0
 
 @provision host="vm":
     ansible-playbook --limit {{host}} playbook.yaml
