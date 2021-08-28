@@ -2,14 +2,10 @@
     just --list
 
 @vm:
-    terraform -chdir=vm init
-    terraform -chdir=vm apply --auto-approve
+    vl up
 
-@vm-destroy:
-    terraform -chdir=vm destroy --auto-approve
+@vm-down:
+    vl down
 
-@vm-ssh:
-    ssh admin@titanium-server.vm
-
-@vm-provision:
-    ansible-playbook --limit vm playbook.yaml
+@provision host="vm":
+    ansible-playbook --limit {{host}} playbook.yaml
