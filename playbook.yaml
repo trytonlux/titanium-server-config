@@ -15,4 +15,4 @@
 
 - hosts: all
   roles:
-    - firewalld
+    - firewall
