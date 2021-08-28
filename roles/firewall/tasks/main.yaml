@@ -11,7 +11,7 @@
     service: http
     permanent: true
     state: enabled
-  register: rule
+  notify: Restart Firewall
 
 - name: Permit Traffic for Transmission
   become: true
@@ -19,7 +19,7 @@
     port: 9091/tcp
     permanent: true
     state: enabled
-  register: rule
+  notify: Restart Firewall
 
 - name: Permit Traffic for Jellyfin
   become: true
@@ -27,13 +27,4 @@
     port: 8096/tcp
     permanent: true
     state: enabled
-  register: rule
-
-- name: Restart firewalld on Rule Changes
-  become: true
-  systemd:
-    name: firewalld
-    state: reloaded
-  # TODO: registers above overwrite each other. This only runs when last rule changes.
-  # Should prob use a handler
-  when: rule.changed
+  notify: Restart Firewall
