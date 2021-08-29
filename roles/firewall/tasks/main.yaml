@@ -12,26 +12,23 @@
     enabled: true
     state: started
 
-- name: Permit Traffic for HTTP
+- name: Create Allow Rules for Services
   become: true
   firewalld:
-    service: http
+    service: "{{ item }}"
     permanent: true
     immediate: true
     state: enabled
+  loop:
+    - http
 
-- name: Permit Traffic for Transmission
+- name: Create Allow Rules for Ports
   become: true
   firewalld:
-    port: 9091/tcp
+    port: "{{ item }}/tcp"
     permanent: true
     immediate: true
     state: enabled
-
-- name: Permit Traffic for Jellyfin
-  become: true
-  firewalld:
-    port: 8096/tcp
-    permanent: true
-    immediate: true
-    state: enabled
+  loop:
+    - 9091
+    - 8096
