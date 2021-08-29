@@ -5,7 +5,7 @@
     name: python3-firewall
     state: present
 
-- name: Ensure firewalld Service is Enabled/Started
+- name: Ensure firewalld Service is Enabled and Started
   become: true
   systemd:
     name: firewalld
