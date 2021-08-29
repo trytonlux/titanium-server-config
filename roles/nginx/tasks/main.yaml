@@ -1,16 +1,19 @@
 ---
 - name: Ensure nginx is Installed
+  become: true
   package:
     name: nginx
     state: present
 
 - name: Ensure httpd_can_network_connect SELinux Policy is Allowed
+  become: true
   seboolean:
     name: httpd_can_network_connect
     state: yes
     persistent: yes
 
 - name: Copy nginx Config
+  become: true
   copy:
     src: "{{ role_path }}/files/nginx.conf"
     dest: "/etc/nginx/nginx.conf"
@@ -19,6 +22,7 @@
     mode: "0644"
 
 - name: Copy nginx Proxy Config
+  become: true
   copy:
     src: "{{ role_path }}/files/proxy.conf"
     dest: "/etc/nginx/proxy.conf"
@@ -27,6 +31,7 @@
     mode: "0644"
 
 - name: Copy Subdomain Configs
+  become: true
   copy:
     src: "{{ item }}"
     dest: "/etc/nginx/conf.d/{{ item | basename }}"
@@ -36,6 +41,7 @@
   with_fileglob: conf.d/*
 
 - name: Ensure nginx Service is Enabled and Started
+  become: true
   systemd:
     name: nginx
     enabled: true
