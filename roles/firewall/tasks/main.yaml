@@ -1,11 +1,11 @@
 ---
-- name: Ensure firewalld Python Bindings are Installed
+- name: Install firewalld Python Bindings
   become: true
   package:
     name: python3-firewall
     state: present
 
-- name: Ensure firewalld Service is Enabled and Started
+- name: Start and Enable firewalld Service
   become: true
   systemd:
     name: firewalld

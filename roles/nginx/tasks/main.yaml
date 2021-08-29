@@ -1,11 +1,11 @@
 ---
-- name: Ensure nginx is Installed
+- name: Install nginx
   become: true
   package:
     name: nginx
     state: present
 
-- name: Ensure httpd_can_network_connect SELinux Policy is Allowed
+- name: Configure httpd_can_network_connect SELinux Policy
   become: true
   seboolean:
     name: httpd_can_network_connect
@@ -40,7 +40,7 @@
     mode: "0644"
   with_fileglob: conf.d/*
 
-- name: Ensure nginx Service is Enabled and Started
+- name: Enable and Start nginx Service
   become: true
   systemd:
     name: nginx

@@ -1,19 +1,19 @@
 ---
 - hosts: vm
   tasks:
-  - name: Ensure Packages are Up-to-Date
+  - name: Update Packages
     become: true
     dnf:
       name: "*"
       state: latest
 
-  - name: Ensure 'Fedora Server Edition' Group is installed
+  - name: Install 'Fedora Server Edition' Group
     become: true
     dnf:
       name: "@Fedora Server Edition"
       state: present
 
-  - name: Ensure Storage Directory Exists
+  - name: Create Storage Directory
     become: true
     file:
       path: /storage
