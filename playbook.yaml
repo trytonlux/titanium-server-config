@@ -16,4 +16,5 @@
 - hosts: all
   roles:
     - firewall
+    - nginx
     - transmission
