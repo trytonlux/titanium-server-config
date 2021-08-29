@@ -1,57 +1,27 @@
 ---
-- name: Install Transmission
+- name: Ensure Transmission is Installed
   become: true
   package:
     name: transmission-daemon
     state: present
 
-- name: Set a higher value for rmem_max
+- name: Ensure rmem_max is '4194304'
   become: true
   sysctl:
     name: "net.core.rmem_max"
     value: "4194304"
     state: present
 
-- name: Set a higher value for rmem_max
+- name: Ensure wmem_max is '1048576'
   become: true
   sysctl:
     name: "net.core.wmem_max"
     value: "1048576"
     state: present
 
-- name: Enable transmission-daemon
+- name: Ensure Transmission Service is Enabled and Started
   become: true
   systemd:
     name: transmission-daemon
     enabled: true
-    state: started
-
-- name: Stop transmission-daemon
-  become: true
-  systemd:
-    name: transmission-daemon
-    state: stopped
-
-- name: Disable rpc-whitelist
-  become: true
-  json_patch:
-    src: "/var/lib/transmission/.config/transmission-daemon/settings.json"
-    operations:
-      - op: replace
-        path: "/rpc-whitelist-enabled"
-        value: "false"
-
-- name: Disable rpc-host-whitelist
-  become: true
-  json_patch:
-    src: "/var/lib/transmission/.config/transmission-daemon/settings.json"
-    operations:
-      - op: replace
-        path: "/rpc-host-whitelist-enabled"
-        value: "false"
-
-- name: Start transmission-daemon
-  become: true
-  systemd:
-    name: transmission-daemon
     state: started
