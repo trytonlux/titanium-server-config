@@ -13,6 +13,12 @@
       name: "@Fedora Server Edition"
       state: present
 
+  - name: Ensure Storage Directory Exists
+    become: true
+    file:
+      path: /storage
+      state: directory
+
 - hosts: all
   roles:
     - firewall
