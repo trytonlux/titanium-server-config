@@ -43,17 +43,9 @@
       group: "storage"
       mode: "u=rwx,g=rwx,o=r"
 
-  - name: Create Storage->Containers Directory
-    become: true
-    file:
-      path: /storage/containers
-      state: directory
-      group: "storage"
-      mode: "u=rwx,g=rwx,o=r"
-
-
 - hosts: all
   roles:
     - firewall
     - nginx
     - transmission
+    - podman
