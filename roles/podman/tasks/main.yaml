@@ -12,6 +12,12 @@
     system: true
     home: "/var/lib/podman"
 
+- name: Enable Systemd Lingering for Podman
+  become: true
+  command:
+    cmd: loginctl enable-linger podman
+    creates: "/var/lib/systemd/linger/podman"
+
 - name: Create Storage->Containers Directory
   become: true
   file:
