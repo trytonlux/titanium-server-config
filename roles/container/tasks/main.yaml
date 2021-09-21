@@ -1,10 +1,12 @@
 ---
 - name: Create Storage Directory for Container
+  become: true
   file:
     path: "/storage/containers/{{ container_name }}"
     state: directory
     owner: "podman"
     group: "storage"
+    mode: 0775
 
 - name: Template Systemd Unit
   become: true
