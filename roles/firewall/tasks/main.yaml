@@ -21,14 +21,3 @@
     state: enabled
   loop:
     - http
-
-- name: Create Allow Rules for Ports
-  become: true
-  firewalld:
-    port: "{{ item }}/tcp"
-    permanent: true
-    immediate: true
-    state: enabled
-  loop:
-    - 9091
-    - 8096
