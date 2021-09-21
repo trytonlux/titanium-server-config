@@ -9,8 +9,8 @@
   become: true
   user:
     name: "podman"
-    system: true
     home: "/var/lib/podman"
+    shell: "/bin/false"
 
 - name: Enable Systemd Lingering for Podman
   become: true
