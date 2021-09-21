@@ -22,3 +22,4 @@
     name: "podman-{{ container_name }}"
     enabled: true
     state: started
+    scope: user
