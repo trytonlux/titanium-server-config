@@ -13,11 +13,18 @@
       name: "@Fedora Server Edition"
       state: present
 
-  - name: Create "storage" Group
+  - name: Create 'storage' Group
     become: true
     group:
       name: "storage"
       state: present
+
+  - name: Add '{{ user }}' to 'storage' group
+    user:
+      name: "{{ user }}"
+      groups:
+        - "storage"
+      append: true
 
   - name: Create Storage Directory
     become: true
