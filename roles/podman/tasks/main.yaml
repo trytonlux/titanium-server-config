@@ -1,5 +1,14 @@
 ---
 - name: Install podman
+  become: true
   package:
-    name: podman
+    name: "podman"
     state: present
+
+- name: Create Storage->Containers Directory
+  become: true
+  file:
+    path: /storage/containers
+    state: directory
+    group: "storage"
+    mode: "u=rwx,g=rwx,o=r"
