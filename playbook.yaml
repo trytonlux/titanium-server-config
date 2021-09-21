@@ -19,9 +19,10 @@
       name: "storage"
       state: present
 
-  - name: Add '{{ user }}' to 'storage' group
+  - name: Add '{{ ansible_user_id }}' to 'storage' group
+    become: true
     user:
-      name: "{{ user }}"
+      name: "{{ ansible_user_id }}"
       groups:
         - "storage"
       append: true
