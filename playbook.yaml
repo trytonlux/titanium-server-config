@@ -50,3 +50,8 @@
     - nginx
     - transmission
     - podman
+
+    - role: container
+      container_name: "jellyfin"
+      container_image: "docker.io/linuxserver/jellyfin"
+      container_tag: "latest"
