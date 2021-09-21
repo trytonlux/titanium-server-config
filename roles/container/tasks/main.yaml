@@ -1,0 +1,21 @@
+---
+- name: Create Storage Directory for Container
+  file:
+    path: "/storage/container/{{ container_name }}"
+    state: directory
+    owner: "podman"
+    group: "storage"
+
+- name: Template Systemd Unit
+  become: true
+  template:
+    src: "container.service.j2"
+    dest: "/etc/systemd/system/podman-{{ container_name }}.service"
+
+
+- name: Start and Enable Systemd Unit
+  become: true
+  systemd:
+    name: "podman-{{ container_name }}"
+    enabled: true
+    state: started
