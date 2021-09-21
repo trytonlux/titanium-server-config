@@ -1,7 +1,7 @@
 ---
 - name: Create Storage Directory for Container
   file:
-    path: "/storage/container/{{ container_name }}"
+    path: "/storage/containers/{{ container_name }}"
     state: directory
     owner: "podman"
     group: "storage"
