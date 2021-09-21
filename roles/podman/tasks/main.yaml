@@ -10,7 +10,6 @@
   user:
     name: "podman"
     home: "/var/lib/podman"
-    shell: "/bin/false"
 
 - name: Enable Systemd Lingering for Podman
   become: true
