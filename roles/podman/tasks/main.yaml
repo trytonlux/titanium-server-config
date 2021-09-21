@@ -21,7 +21,14 @@
 - name: Create Storage->Containers Directory
   become: true
   file:
-    path: /storage/containers
+    path: "/storage/containers"
     state: directory
     group: "storage"
     mode: 0775
+
+- name: Create Podman Systemd User Directory
+  become: true
+  become_user: podman
+  file:
+    path: "~/.config/systemd/user"
+    state: directory
