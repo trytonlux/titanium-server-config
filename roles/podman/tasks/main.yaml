@@ -1,9 +1,16 @@
 ---
-- name: Install podman
+- name: Install 'podman'
   become: true
   package:
     name: "podman"
     state: present
+
+- name: Add 'podman' User
+  become: true
+  user:
+    name: "podman"
+    system: true
+    home: "/var/lib/podman"
 
 - name: Create Storage->Containers Directory
   become: true
