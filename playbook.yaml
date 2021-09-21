@@ -13,11 +13,19 @@
       name: "@Fedora Server Edition"
       state: present
 
+  - name: Create "storage" Group
+    become: true
+    group:
+      name: "storage"
+      state: present
+
   - name: Create Storage Directory
     become: true
     file:
       path: /storage
       state: directory
+      group: "storage"
+
 
 - hosts: all
   roles:
