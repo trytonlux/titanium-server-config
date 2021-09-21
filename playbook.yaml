@@ -35,18 +35,18 @@
       group: "storage"
       mode: "u=rwx,g=rwx,o=r"
 
-  - name: Create Storage/Media Directory
+  - name: Create Storage->Media Directory
     become: true
     file:
-      path: /storage/Media
+      path: /storage/media
       state: directory
       group: "storage"
       mode: "u=rwx,g=rwx,o=r"
 
-  - name: Create Storage/Containers Directory
+  - name: Create Storage->Containers Directory
     become: true
     file:
-      path: /storage/Containers
+      path: /storage/containers
       state: directory
       group: "storage"
       mode: "u=rwx,g=rwx,o=r"
