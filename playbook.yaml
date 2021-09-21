@@ -33,7 +33,7 @@
       path: /storage
       state: directory
       group: "storage"
-      mode: "u=rwx,g=rwx,o=r"
+      mode: 0775
 
   - name: Create Storage->Media Directory
     become: true
@@ -41,7 +41,7 @@
       path: /storage/media
       state: directory
       group: "storage"
-      mode: "u=rwx,g=rwx,o=r"
+      mode: 0775
 
 - hosts: all
   roles:
