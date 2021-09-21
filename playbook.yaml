@@ -19,12 +19,13 @@
       name: "storage"
       state: present
 
-  - name: Add '{{ ansible_user_id }}' to 'storage' group
+  - name: Add '{{ ansible_user_id }}' to groups
     become: true
     user:
       name: "{{ ansible_user_id }}"
       groups:
         - "storage"
+        - "wheel"
       append: true
 
   - name: Create Storage Directory
