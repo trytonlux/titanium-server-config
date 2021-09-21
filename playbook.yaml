@@ -33,6 +33,7 @@
       path: /storage
       state: directory
       group: "storage"
+      mode: "u=rwx,g=rwx,o=r"
 
 
 - hosts: all
