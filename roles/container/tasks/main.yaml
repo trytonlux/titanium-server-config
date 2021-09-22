@@ -18,6 +18,7 @@
 - name: Start and Enable Systemd Unit
   systemd:
     name: "podman-{{ container_name }}"
+    daemon-reload: true
     enabled: true
     state: started
     scope: user
