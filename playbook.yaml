@@ -55,3 +55,5 @@
       container_name: "jellyfin"
       container_image: "ghcr.io/linuxserver/jellyfin"
       container_tag: "latest"
+      container_port: "8096"
+      host_port: "8096"
