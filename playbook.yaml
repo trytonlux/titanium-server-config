@@ -53,5 +53,5 @@
 
     - role: container
       container_name: "jellyfin"
-      container_image: "docker.io/linuxserver/jellyfin"
+      container_image: "ghcr.io/linuxserver/jellyfin"
       container_tag: "latest"
