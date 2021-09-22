@@ -1,8 +1,5 @@
 [Unit]
 Description=Podman Container - {{ container_name }}
-{# Use variable for network == true #}
-{# Wants=network-online.target #}
-{# After=network-online.target #}
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n
