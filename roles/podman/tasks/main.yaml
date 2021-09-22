@@ -5,19 +5,13 @@
     name: "podman"
     state: present
 
-- name: Add 'podman' User
-  become: true
-  user:
-    name: "podman"
-    home: "/var/lib/podman"
-
-- name: Enable Systemd Lingering for Podman
+- name: Enable Systemd Lingering for '{{ ansible_user_id }}'
   become: true
   command:
-    cmd: loginctl enable-linger podman
-    creates: "/var/lib/systemd/linger/podman"
+    cmd: "loginctl enable-linger {{ ansible_user_id }}"
+    creates: "/var/lib/systemd/linger/{{ ansible_user_id }}"
 
-- name: Create Storage->Containers Directory
+- name: Create Storage/Containers Directory
   become: true
   file:
     path: "/storage/containers"
@@ -25,9 +19,7 @@
     group: "storage"
     mode: 0775
 
-- name: Create Podman Systemd User Directory
-  become: true
-  become_user: podman
+- name: Create '{{ ansible_user_id }}' Systemd User Directory
   file:
     path: "~/.config/systemd/user"
     state: directory
