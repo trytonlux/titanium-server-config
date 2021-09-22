@@ -11,15 +11,11 @@
     mode: 0775
 
 - name: Template Systemd Unit
-  become: true
-  become_user: podman
   template:
     src: "container.service.j2"
-    dest: "/var/lib/podman/.config/systemd/user/podman-{{ container_name }}.service"
+    dest: "~/.config/systemd/user/podman-{{ container_name }}.service"
 
 - name: Start and Enable Systemd Unit
-  become: true
-  become_user: podman
   systemd:
     name: "podman-{{ container_name }}"
     enabled: true
