@@ -10,6 +10,8 @@ ExecStart=/usr/bin/podman run --rm -d --name {{ container_name }} \
     --cgroups=no-conmon --cidfile=%t/%n.ctr-id --sdnotify=conmon \
     -p {{ host_port }}:{{ container_port }}  \
     {{ container_image }}:{{ container_tag }}
+    # TODO: Loop volume mounts and env vars
+    # https://jinja2docs.readthedocs.io/en/stable/
 ExecStop=/usr/bin/podman stop --ignore --cidfile=%t/%n.ctr-id
 ExecStopPost=/usr/bin/podman rm -f --ignore --cidfile=%t/%n.ctr-id
 Type=notify
