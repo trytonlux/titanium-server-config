@@ -5,7 +5,7 @@
     path: "/storage/containers/{{ container_name }}"
     state: directory
     owner: "{{ ansible_user_id }}"
-    group: "storage"
+    group: "{{ ansible_user_id }}"
     mode: 0775
 
 - name: ({{ container_name }}) Template Systemd Unit
