@@ -46,10 +46,10 @@
 
 - hosts: all
   roles:
-    # - firewall
-    # - nginx
-    # - transmission
-    # - podman
+    - firewall
+    - nginx
+    - transmission
+    - podman
 
     - role: container
       container_name: "jellyfin"
