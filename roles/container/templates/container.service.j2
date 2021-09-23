@@ -1,12 +1,12 @@
 [Unit]
-Description=Podman Container - {{ name }}
+Description=Podman Container - {{ container_name }}
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/%n.ctr-id
-ExecStart=/usr/bin/podman run --rm -d --name {{ name }} \
+ExecStart=/usr/bin/podman run --rm -d --name {{ container_name }} \
     --cgroups=no-conmon --cidfile=%t/%n.ctr-id --sdnotify=conmon \
     -p {{ ports.host }}:{{ ports.container }}  \
 {% for env_var in env_vars %}

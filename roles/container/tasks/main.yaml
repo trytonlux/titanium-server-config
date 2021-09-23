@@ -1,21 +1,21 @@
 ---
-- name: ({{ name }}) Create Storage Directory for Container
+- name: ({{ container_name }}) Create Storage Directory for Container
   become: true
   file:
-    path: "/storage/containers/{{ name }}"
+    path: "/storage/containers/{{ container_name }}"
     state: directory
     owner: "podman"
     group: "storage"
     mode: 0775
 
-- name: ({{ name }}) Template Systemd Unit
+- name: ({{ container_name }}) Template Systemd Unit
   template:
     src: "container.service.j2"
-    dest: "~/.config/systemd/user/podman-{{ name }}.service"
+    dest: "~/.config/systemd/user/podman-{{ container_name }}.service"
 
-- name: ({{ name }}) Start and Enable Systemd Unit
+- name: ({{ container_name }}) Start and Enable Systemd Unit
   systemd:
-    name: "podman-{{ name }}"
+    name: "podman-{{ container_name }}"
     daemon-reload: true
     enabled: true
     state: started
