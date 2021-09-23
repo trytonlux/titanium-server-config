@@ -4,7 +4,7 @@
   file:
     path: "/storage/containers/{{ container_name }}"
     state: directory
-    owner: "podman"
+    owner: "{{ ansible_user_id }}"
     group: "storage"
     mode: 0775
 
