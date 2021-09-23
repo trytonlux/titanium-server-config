@@ -13,7 +13,7 @@ ExecStart=/usr/bin/podman run --rm -d --name {{ container_name }} \
     -e {{ env_var }} \
 {% endfor %}
 {% for mount in mounts %}
-    -v {{ mount }}:Z \
+    -v {{ mount }}:z \
 {% endfor %}
     {{ image }}:{{ tag }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile=%t/%n.ctr-id
