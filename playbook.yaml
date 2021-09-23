@@ -46,14 +46,22 @@
 
 - hosts: all
   roles:
-    - firewall
-    - nginx
-    - transmission
-    - podman
+    # - firewall
+    # - nginx
+    # - transmission
+    # - podman
 
     - role: container
       container_name: "jellyfin"
-      container_image: "ghcr.io/linuxserver/jellyfin"
-      container_tag: "latest"
-      container_port: "8096"
-      host_port: "8096"
+      image: "ghcr.io/linuxserver/jellyfin"
+      tag: "latest"
+      ports:
+        host: "8096"
+        container: "8096"
+      env_vars:
+        - "PUID=1000"
+        - "PGID=1000"
+        - "TZ=America/Toronto"
+      mounts:
+        - "/storage/containers/jellyfin:/config"
+        - "/storage/media:/data"
