@@ -12,13 +12,6 @@
     state: yes
     persistent: yes
 
-- name: Create SSL Directory
-  become: true
-  file:
-    dest: "ssl"
-    state: directory
-    mode: "0775"
-
 - name: Copy Certificates
   become: true
   copy:
