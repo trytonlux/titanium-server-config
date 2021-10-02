@@ -21,3 +21,4 @@
     state: enabled
   loop:
     - http
+    - https
