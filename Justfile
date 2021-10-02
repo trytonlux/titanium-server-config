@@ -15,4 +15,4 @@ ssh host="vm":
     exit 0
 
 @provision host="vm":
-    ansible-playbook --limit {{host}} --ask-vault-password playbook.yaml
+    ansible-playbook --limit {{host}} playbook.yaml
