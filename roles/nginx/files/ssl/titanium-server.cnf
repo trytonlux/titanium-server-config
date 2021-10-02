@@ -1,0 +1,23 @@
+[req]
+default_bits = 4096
+distinguished_name = req_distinguished_name
+prompt = no
+
+[req_distinguished_name]
+C = CA
+ST = Ontario
+L = Ottawa
+O = Localhost CA
+OU = Titanium-Server
+CN = titanium-server.lan
+
+[v3_ca]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = titanium-server.lan
+DNS.2 = titanium-server.vl
+DNS.3 = torrent.titanium-server.lan
+DNS.4 = torrent.titanium-server.vl
+DNS.5 = jellyfin.titanium-server.lan
+DNS.6 = jellyfin.titanium-server.vl
