@@ -42,6 +42,17 @@
   notify:
     - Restart nginx
 
+- name: Copy 'nginx' SSL Config
+  become: true
+  copy:
+    src: "ssl.conf"
+    dest: "/etc/nginx/ssl.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify:
+    - Restart nginx
+
 - name: Copy 'nginx' Proxy Config
   become: true
   copy:
