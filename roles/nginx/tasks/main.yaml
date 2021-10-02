@@ -25,8 +25,8 @@
     src: "{{ item }}"
     dest: "/etc/nginx/ssl/"
     owner: "root"
-    group: "root"
-    mode: "0644"
+    group: "nginx"
+    mode: "0640"
   loop:
     - "ssl/titanium-server.crt"
     - "ssl/titanium-server.key"
