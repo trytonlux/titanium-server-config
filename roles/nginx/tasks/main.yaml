@@ -12,6 +12,25 @@
     state: yes
     persistent: yes
 
+- name: Create SSL Directory
+  become: true
+  file:
+    dest: "ssl"
+    state: directory
+    mode: "0775"
+
+- name: Copy Certificates
+  become: true
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/nginx/ssl/"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  loop:
+    - "ssl/titanium-server.crt"
+    - "ssl/titanium-server.key"
+
 - name: Copy 'nginx' Config
   become: true
   copy:
