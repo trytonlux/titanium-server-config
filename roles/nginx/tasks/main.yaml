@@ -1,18 +1,18 @@
 ---
-- name: Install nginx
+- name: Install 'nginx'
   become: true
   package:
     name: nginx
     state: present
 
-- name: Configure httpd_can_network_connect SELinux Policy
+- name: Configure 'httpd_can_network_connect' SELinux Policy
   become: true
   seboolean:
     name: httpd_can_network_connect
     state: yes
     persistent: yes
 
-- name: Copy nginx Config
+- name: Copy 'nginx' Config
   become: true
   copy:
     src: "{{ role_path }}/files/nginx.conf"
@@ -23,7 +23,7 @@
   notify:
     - Restart nginx
 
-- name: Copy nginx Proxy Config
+- name: Copy 'nginx' Proxy Config
   become: true
   copy:
     src: "{{ role_path }}/files/proxy.conf"
@@ -47,7 +47,7 @@
   notify:
     - Restart nginx
 
-- name: Enable and Start nginx Service
+- name: Enable and Start 'nginx' Service
   become: true
   systemd:
     name: "nginx"
