@@ -1,0 +1,19 @@
+---
+
+- name: Create 'jellyfin' Container
+  vars:
+    container_name: "jellyfin"
+    image: "ghcr.io/linuxserver/jellyfin"
+    tag: "latest"
+    ports:
+      host: "8096"
+      container: "8096"
+    env_vars:
+      - "PUID=1000"
+      - "PGID=1000"
+      - "TZ=America/Toronto"
+    mounts:
+      - "/storage/containers/jellyfin:/config"
+      - "/storage/media:/data"
+  include_role:
+    name: container

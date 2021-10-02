@@ -50,3 +50,4 @@
     - nginx
     - transmission
     - podman
+    - jellyfin
