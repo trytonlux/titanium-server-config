@@ -1,5 +1,5 @@
 ---
-- name: ({{ container_name }}) Create Storage Directory for Container
+- name: Create Storage Directory for Container
   become: true
   file:
     path: "/storage/containers/{{ container_name }}"
@@ -8,12 +8,12 @@
     group: "{{ ansible_user_id }}"
     mode: 0775
 
-- name: ({{ container_name }}) Template Systemd Unit
+- name: Template Systemd Unit
   template:
     src: "container.service.j2"
     dest: "~/.config/systemd/user/podman-{{ container_name }}.service"
 
-- name: ({{ container_name }}) Start and Enable Systemd Unit
+- name: Start and Enable Systemd Unit
   systemd:
     name: "podman-{{ container_name }}"
     daemon-reload: true
