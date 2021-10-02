@@ -17,7 +17,5 @@ subjectAltName = @alt_names
 [alt_names]
 DNS.1 = titanium-server.lan
 DNS.2 = titanium-server.vl
-DNS.3 = torrent.titanium-server.lan
-DNS.4 = torrent.titanium-server.vl
-DNS.5 = jellyfin.titanium-server.lan
-DNS.6 = jellyfin.titanium-server.vl
+DNS.3 = *.titanium-server.lan
+DNS.4 = *.titanium-server.vl
