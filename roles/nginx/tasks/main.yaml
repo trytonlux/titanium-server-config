@@ -20,6 +20,8 @@
     owner: "root"
     group: "root"
     mode: "0644"
+  notify:
+    - Restart nginx
 
 - name: Copy nginx Proxy Config
   become: true
@@ -29,6 +31,8 @@
     owner: "root"
     group: "root"
     mode: "0644"
+  notify:
+    - Restart nginx
 
 # https://github.com/linuxserver/reverse-proxy-confs
 - name: Copy Subdomain Configs
@@ -40,10 +44,12 @@
     group: "root"
     mode: "0644"
   with_fileglob: conf.d/*
+  notify:
+    - Restart nginx
 
 - name: Enable and Start nginx Service
   become: true
   systemd:
-    name: nginx
+    name: "nginx"
     enabled: true
     state: started
