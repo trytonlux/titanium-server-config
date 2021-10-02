@@ -5,3 +5,4 @@
     name: "podman-{{ container_name }}"
     daemon-reload: true
     state: restarted
+    scope: user
