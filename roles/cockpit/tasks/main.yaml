@@ -1,5 +1,14 @@
 ---
 
+- name: Copy Cockpit Config
+  become: true
+  copy:
+    src: "cockpit.conf"
+    dest: "/etc/cockpit/cockpit.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+
 - name: Enable and Start 'cockpit' Socket
   become: true
   systemd:
