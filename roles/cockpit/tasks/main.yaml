@@ -1,0 +1,8 @@
+---
+
+- name: Enable and Start 'cockpit' Socket
+  become: true
+  systemd:
+    name: "cockpit.socket"
+    enabled: true
+    state: started
