@@ -27,7 +27,7 @@
 - name: Copy 'nginx' Config
   become: true
   copy:
-    src: "{{ role_path }}/files/nginx.conf"
+    src: "nginx.conf"
     dest: "/etc/nginx/nginx.conf"
     owner: "root"
     group: "root"
@@ -49,7 +49,7 @@
 - name: Copy 'nginx' Proxy Config
   become: true
   copy:
-    src: "{{ role_path }}/files/proxy.conf"
+    src: "proxy.conf"
     dest: "/etc/nginx/proxy.conf"
     owner: "root"
     group: "root"
