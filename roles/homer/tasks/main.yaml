@@ -1,4 +1,21 @@
 ---
+- name: Create 'homer' Container Storage
+  become: true
+  file:
+    path: "/storage/containers/homer"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0775
+
+- name: Copy 'homer' Config
+  copy:
+    src: "config.yaml"
+    dest: "/storage/containers/homer/config.yml"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0644
+
 - name: Create 'homer' Container
   vars:
     container_name: "homer"
@@ -7,5 +24,7 @@
     ports:
       host: "8095"
       container: "8080"
+    mounts:
+      - "/storage/containers/homer:/www/assets"
   include_role:
     name: container
