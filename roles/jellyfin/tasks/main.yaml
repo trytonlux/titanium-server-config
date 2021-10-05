@@ -1,5 +1,4 @@
 ---
-
 - name: Create 'jellyfin' Container
   vars:
     container_name: "jellyfin"
