@@ -18,6 +18,7 @@
     state: directory
     group: "storage"
     mode: 0775
+  when: "inventory_hostname == 'vm'"
 
 - name: Create '{{ ansible_user_id }}' Systemd User Directory
   file:
