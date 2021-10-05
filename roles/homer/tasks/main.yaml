@@ -1,0 +1,11 @@
+---
+- name: Create 'homer' Container
+  vars:
+    container_name: "homer"
+    image: "docker.io/b4bz/homer"
+    tag: "latest"
+    ports:
+      host: "8095"
+      container: "8080"
+  include_role:
+    name: container
