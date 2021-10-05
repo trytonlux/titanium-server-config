@@ -1,4 +1,13 @@
 ---
+- name: Create 'jellyfin' Container Storage
+  become: true
+  file:
+    path: "/storage/containers/jellyfin"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0775
+
 - name: Create 'jellyfin' Container
   vars:
     container_name: "jellyfin"

@@ -1,13 +1,4 @@
 ---
-- name: Create Storage Directory for Container
-  become: true
-  file:
-    path: "/storage/containers/{{ container_name }}"
-    state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    mode: 0775
-
 - name: Template Systemd Unit
   template:
     src: "container.service.j2"
