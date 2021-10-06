@@ -8,9 +8,9 @@
     group: "{{ ansible_user_id }}"
     mode: 0775
 
-- name: Copy 'homer' Config
-  copy:
-    src: "config.yaml"
+- name: Template 'homer' Config
+  template:
+    src: "config.yaml.j2"
     dest: "/storage/containers/homer/config.yml"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
