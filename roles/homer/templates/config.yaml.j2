@@ -1,0 +1,22 @@
+---
+title: "Dashboard"
+subtitle: "Titanium-Server"
+footer: ""
+
+{% if inventory_hostname == "vm" %}
+  {% set tld = "vl" %}
+{% else %}
+  {% set tld = "lan" %}
+{% endif%}
+
+services:
+  - items:
+    - name: "Cockpit"
+      icon: "fab fa-fedora"
+      url: "https://cockpit.titanium-server.{{ tld }}"
+    - name: "Jellyfin"
+      icon: "fas fa-play-circle"
+      url: "https://jellyfin.titanium-server.{{ tld }}"
+    - name: "Torrents"
+      icon: "fas fa-download"
+      url: "https://torrent.titanium-server.{{ tld }}"
