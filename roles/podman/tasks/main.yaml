@@ -11,14 +11,6 @@
     cmd: "loginctl enable-linger {{ ansible_user_id }}"
     creates: "/var/lib/systemd/linger/{{ ansible_user_id }}"
 
-- name: Create Storage/Containers Directory
-  become: true
-  file:
-    path: "/storage/containers"
-    state: directory
-    group: "storage"
-    mode: 0775
-
 - name: Create '{{ ansible_user_id }}' Systemd User Directory
   file:
     path: "~/.config/systemd/user"
