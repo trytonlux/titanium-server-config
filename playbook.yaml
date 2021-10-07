@@ -13,12 +13,6 @@
       name: "@Fedora Server Edition"
       state: present
 
-  - name: Create 'storage' Group
-    become: true
-    group:
-      name: "storage"
-      state: present
-
   - name: Add '{{ ansible_user_id }}' to groups
     become: true
     user:
@@ -27,22 +21,6 @@
         - "storage"
         - "wheel"
       append: true
-
-  - name: Create Storage Directory
-    become: true
-    file:
-      path: /storage
-      state: directory
-      group: "storage"
-      mode: 0775
-
-  - name: Create Storage->Media Directory
-    become: true
-    file:
-      path: /storage/media
-      state: directory
-      group: "storage"
-      mode: 0775
 
 - hosts: all
   roles:
