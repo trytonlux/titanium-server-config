@@ -7,24 +7,12 @@
       name: "*"
       state: latest
 
-  - name: Install 'Fedora Server Edition' Group
-    become: true
-    dnf:
-      name: "@Fedora Server Edition"
-      state: present
-    when: "inventory_hostname == 'vm'"
-
-  - name: Add '{{ ansible_user_id }}' to 'wheel' Group
-    become: true
-    user:
-      name: "{{ ansible_user_id }}"
-      groups:
-        - "wheel"
-      append: true
+- hosts: vm
+  roles:
+    - vm
 
 - hosts: all
   roles:
-    - storage
     - firewall
     - nginx
     - cockpit

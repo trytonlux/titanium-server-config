@@ -1,4 +1,18 @@
 ---
+- name: Install 'Fedora Server Edition' Group
+  become: true
+  dnf:
+    name: "@Fedora Server Edition"
+    state: present
+
+- name: Add '{{ ansible_user_id }}' to 'wheel' Group
+  become: true
+  user:
+    name: "{{ ansible_user_id }}"
+    groups:
+      - "wheel"
+    append: true
+
 - name: Create 'storage' Group
   become: true
   group:
@@ -17,6 +31,14 @@
   become: true
   file:
     path: /storage
+    state: directory
+    group: "storage"
+    mode: 0775
+
+- name: Create Storage->Containers Directory
+  become: true
+  file:
+    path: "/storage/containers"
     state: directory
     group: "storage"
     mode: 0775
