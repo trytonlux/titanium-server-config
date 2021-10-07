@@ -24,6 +24,7 @@
 
 - hosts: all
   roles:
+    - storage
     - firewall
     - nginx
     - cockpit
