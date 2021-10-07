@@ -5,6 +5,14 @@
     name: "storage"
     state: present
 
+- name: Add '{{ ansible_user_id }}' to 'storage' Group
+  become: true
+  user:
+    name: "{{ ansible_user_id }}"
+    groups:
+      - "storage"
+    append: true
+
 - name: Create Storage Directory
   become: true
   file:
