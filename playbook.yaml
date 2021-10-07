@@ -1,5 +1,5 @@
 ---
-- hosts: vm
+- hosts: all
   tasks:
   - name: Update Packages
     become: true
