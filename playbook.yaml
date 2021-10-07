@@ -12,13 +12,13 @@
     dnf:
       name: "@Fedora Server Edition"
       state: present
+    when: "inventory_hostname == 'vm'"
 
-  - name: Add '{{ ansible_user_id }}' to groups
+  - name: Add '{{ ansible_user_id }}' to 'wheel' Group
     become: true
     user:
       name: "{{ ansible_user_id }}"
       groups:
-        - "storage"
         - "wheel"
       append: true
 
