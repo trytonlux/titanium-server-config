@@ -1,4 +1,5 @@
 - name: titanium-server
+  username: admin
   distro: fedora-34
   memory: 2048
   networks:
