@@ -8,6 +8,7 @@ TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/%n.ctr-id
 ExecStart=/usr/bin/podman run --rm -d --name {{ container_name }} \
     --cgroups=no-conmon --cidfile=%t/%n.ctr-id --sdnotify=conmon \
+    --log-driver=journald \
 {% for port in ports %}
     -p {{ port.host }}:{{ port.container }} \
 {% endfor %}
