@@ -39,5 +39,6 @@
     env_vars:
       - "KEYCLOAK_USER=admin"
       - "KEYCLOAK_PASSWORD={{ password }}"
+      - "PROXY_ADDRESS_FORWARDING=true"
   include_role:
     name: container
