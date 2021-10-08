@@ -12,9 +12,6 @@
   template:
     src: "config.yaml.j2"
     dest: "/storage/containers/homer/config.yaml"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    mode: 0644
 
 - name: Create 'homer' Container
   vars:
