@@ -5,10 +5,9 @@
     dest: "~/.config/systemd/user/podman-{{ container_name }}.service"
   notify: Restart Container
 
-- name: Start and Enable Systemd Unit
+- name: Enable Systemd Unit
   systemd:
     name: "podman-{{ container_name }}"
     daemon-reload: true
     enabled: true
-    state: started
     scope: user

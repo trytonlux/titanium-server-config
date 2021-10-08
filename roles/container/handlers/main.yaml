@@ -1,5 +1,4 @@
 ---
-
 - name: Restart Container
   systemd:
     name: "podman-{{ container_name }}"
