@@ -5,25 +5,18 @@
     name: "@Fedora Server Edition"
     state: present
 
-- name: Add '{{ ansible_user_id }}' to 'wheel' Group
-  become: true
-  user:
-    name: "{{ ansible_user_id }}"
-    groups:
-      - "wheel"
-    append: true
-
 - name: Create 'storage' Group
   become: true
   group:
     name: "storage"
     state: present
 
-- name: Add '{{ ansible_user_id }}' to 'storage' Group
+- name: Add '{{ ansible_user_id }}' Groups
   become: true
   user:
     name: "{{ ansible_user_id }}"
     groups:
+      - "wheel"
       - "storage"
     append: true
 
