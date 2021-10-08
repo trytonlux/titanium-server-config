@@ -14,8 +14,8 @@
     image: "ghcr.io/linuxserver/jellyfin"
     tag: "latest"
     ports:
-      host: "8096"
-      container: "8096"
+      - host: "8096"
+        container: "8096"
     env_vars:
       - "PUID=0"
       - "PGID=0"

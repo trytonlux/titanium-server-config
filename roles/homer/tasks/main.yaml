@@ -19,8 +19,8 @@
     image: "docker.io/b4bz/homer"
     tag: "latest"
     ports:
-      host: "8095"
-      container: "8080"
+      - host: "8095"
+        container: "8080"
     mounts:
       - "/storage/containers/homer/config.yaml:/www/assets/config.yml"
   include_role:
