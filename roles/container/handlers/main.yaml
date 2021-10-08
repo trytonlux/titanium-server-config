@@ -1,7 +1,7 @@
 ---
 - name: Restart Container
   systemd:
-    name: "podman-{{ container_name }}"
+    name: "container-{{ container_name }}"
     daemon-reload: true
     state: restarted
     scope: user

@@ -2,12 +2,12 @@
 - name: Template Systemd Unit
   template:
     src: "container.service.j2"
-    dest: "~/.config/systemd/user/podman-{{ container_name }}.service"
+    dest: "~/.config/systemd/user/container-{{ container_name }}.service"
   notify: Restart Container
 
 - name: Enable Systemd Unit
   systemd:
-    name: "podman-{{ container_name }}"
+    name: "container-{{ container_name }}"
     daemon-reload: true
     enabled: true
     scope: user
