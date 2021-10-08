@@ -20,6 +20,12 @@
       - "storage"
     append: true
 
+- name: Set Password for '{{ ansible_user_id }}'
+  become: true
+  user:
+    name: "{{ ansible_user_id }}"
+    password: "$6$o4Y5wSr/WTlymO/M$WlBwCYoZF28WFbWqeojzfhejsJd9K06VcPikA2O6OFV99n5/mQOLZiT35cjKpVXdUQJysfpY/w8tiDn0WkJi9/"
+
 - name: Create Storage Directory
   become: true
   file:
