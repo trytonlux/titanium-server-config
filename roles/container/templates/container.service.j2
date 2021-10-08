@@ -5,10 +5,14 @@ Description=Podman Container - {{ container_name }}
 Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=70
-ExecStartPre=/bin/rm -f %t/%n.ctr-id
+ExecStartPre=/bin/rm -f %t/{{ container_name }}.ctr-id
 ExecStart=/usr/bin/podman run --rm -d --name {{ container_name }} \
-    --cgroups=no-conmon --cidfile=%t/%n.ctr-id --sdnotify=conmon \
+    --cgroups=no-conmon --sdnotify=conmon \
+    --cidfile=%t/{{ container_name }}.ctr-id \
     --log-driver=journald \
+{% if pod %}
+    --pod-id-file %t/{{ pod }}.pod-id \
+{% endif %}
 {% for port in ports %}
     -p {{ port.host }}:{{ port.container }} \
 {% endfor %}
@@ -19,8 +23,10 @@ ExecStart=/usr/bin/podman run --rm -d --name {{ container_name }} \
     -v {{ mount }}:Z \
 {% endfor %}
     {{ image }}:{{ tag }}
-ExecStop=/usr/bin/podman stop --ignore --cidfile=%t/%n.ctr-id
-ExecStopPost=/usr/bin/podman rm -f --ignore --cidfile=%t/%n.ctr-id
+ExecStop=/usr/bin/podman stop --ignore \
+    --cidfile=%t/{{ container_name }}.ctr-id
+ExecStopPost=/usr/bin/podman rm -f --ignore \
+    --cidfile=%t/{{ container_name }}.ctr-id
 Type=notify
 NotifyAccess=all
 
