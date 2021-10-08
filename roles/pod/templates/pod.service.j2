@@ -1,5 +1,14 @@
 [Unit]
 Description=Podman Pod - {{ pod_name }}
+Requires=
+{%- for container in containers -%}
+container-{{ container }}.service{{ ' ' }}
+{%- endfor %}
+
+Before=
+{%- for container in containers -%}
+container-{{ container }}.service{{ ' ' }}
+{%- endfor %}
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n
