@@ -17,8 +17,8 @@
       host: "8096"
       container: "8096"
     env_vars:
-      - "PUID=1000"
-      - "PGID=1000"
+      - "PUID=0"
+      - "PGID=0"
       - "TZ=America/Toronto"
     mounts:
       - "/storage/containers/jellyfin:/config"
