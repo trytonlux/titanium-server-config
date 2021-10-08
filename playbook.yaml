@@ -15,8 +15,8 @@
   roles:
     - firewall
     - nginx
+    - homer
     - cockpit
     - transmission
     - podman
     - jellyfin
-    - homer
