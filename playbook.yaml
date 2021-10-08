@@ -13,10 +13,10 @@
 
 - hosts: all
   roles:
+    - podman
     - firewall
     - nginx
     - homer
     - cockpit
     - transmission
-    - podman
     - jellyfin
