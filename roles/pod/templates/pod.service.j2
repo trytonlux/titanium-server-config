@@ -1,0 +1,21 @@
+[Unit]
+Description=Podman Pod - {{ pod_name }}
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/%n.pid %t/%n.pod-id
+ExecStartPre=/usr/bin/podman pod create --infra-conmon-pidfile %t/%n.pid --pod-id-file %t/%n.pod-id \
+{% for port in ports %}
+    -p {{ port.host }}:{{ port.container }} \
+{% endfor %}
+    --name {{ pod_name }} --replace
+ExecStart=/usr/bin/podman pod start --pod-id-file %t/%n.pod-id
+ExecStop=/usr/bin/podman pod stop --ignore --pod-id-file %t/%n.pod-id -t 10
+ExecStopPost=/usr/bin/podman pod rm --ignore -f --pod-id-file %t/%n.pod-id
+PIDFile=%t/%n.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target

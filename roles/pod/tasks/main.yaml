@@ -1,0 +1,14 @@
+---
+- name: Template Systemd Unit
+  template:
+    src: "pod.service.j2"
+    dest: "~/.config/systemd/user/pod-{{ pod_name }}.service"
+  notify: Restart Pod
+
+- name: Start and Enable Systemd Unit
+  systemd:
+    name: "pod-{{ pod_name }}"
+    daemon-reload: true
+    enabled: true
+    state: started
+    scope: user

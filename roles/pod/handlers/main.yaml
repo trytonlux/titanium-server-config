@@ -1,0 +1,7 @@
+---
+- name: Restart Pod
+  systemd:
+    name: "pod-{{ pod_name }}"
+    daemon-reload: true
+    state: restarted
+    scope: user
