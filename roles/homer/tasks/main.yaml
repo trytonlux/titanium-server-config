@@ -12,6 +12,7 @@
   template:
     src: "config.yaml.j2"
     dest: "/storage/containers/homer/config.yaml"
+  notify: Restart Homer
 
 - name: Create 'homer' Container
   vars:
