@@ -2,12 +2,12 @@
 Description=Podman Pod - {{ pod_name }}
 Requires=
 {%- for container in containers -%}
-container-{{ container }}.service{{ ' ' }}
+container-{{ pod_name}}-{{ container }}.service{{ ' ' }}
 {%- endfor %}
 
 Before=
 {%- for container in containers -%}
-container-{{ container }}.service{{ ' ' }}
+container-{{ pod_name}}-{{ container }}.service{{ ' ' }}
 {%- endfor %}
 
 [Service]
