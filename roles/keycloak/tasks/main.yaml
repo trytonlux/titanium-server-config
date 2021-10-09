@@ -45,7 +45,7 @@
     tag: "15.0.2"
     env_vars:
       - "KEYCLOAK_USER=admin"
-      - "KEYCLOAK_PASSWORD={{ password }}"
+      - "KEYCLOAK_PASSWORD={{ keycloak_password }}"
       - "PROXY_ADDRESS_FORWARDING=true"
       - "DB_VENDOR=postgres"
       - "DB_ADDR=localhost"
