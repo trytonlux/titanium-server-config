@@ -1,0 +1,13 @@
+---
+- name: Install OpenLDAP Server
+  become: true
+  package:
+    name: "openldap-servers"
+    state: present
+
+- name: Enable Systemd Unit
+  become: true
+  systemd:
+    name: "slapd"
+    daemon-reload: true
+    enabled: true
