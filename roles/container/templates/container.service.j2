@@ -1,11 +1,5 @@
-{% if pod %}
-    {% set container_id = pod + "-" + container_name %}
-{% else %}
-    {% set container_id = container_name %}
-{% endif %}
-
 [Unit]
-Description=Podman Container - {{ container_name }}
+Description=Podman Container - {{ container_id }}
 {% if pod %}
 BindsTo=pod-{{ pod }}.service
 After=pod-{{ pod }}.service
