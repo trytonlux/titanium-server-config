@@ -1,4 +1,5 @@
 ---
+container_id: "{% if pod %}{{- pod + '-' + container_name -}} {% else %} {{- container_name -}} {% endif %}"
 env_vars: []
 mounts: []
 ports: []
