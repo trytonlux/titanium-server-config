@@ -1,5 +1,0 @@
----
-- name: Restart OpenLDAP
-  systemd:
-    name: "slapd"
-    state: restarted
