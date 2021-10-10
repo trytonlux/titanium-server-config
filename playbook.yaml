@@ -18,6 +18,5 @@
     - nginx
     - homer
     - cockpit
-    - keycloak
     - transmission
     - jellyfin
