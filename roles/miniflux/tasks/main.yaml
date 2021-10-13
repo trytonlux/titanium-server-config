@@ -40,6 +40,7 @@
 - name: Create 'miniflux' Container
   vars:
     pod: "miniflux"
+    delay: "30"
     container_name: "miniflux"
     image: "docker.io/miniflux/miniflux"
     tag: "latest"
