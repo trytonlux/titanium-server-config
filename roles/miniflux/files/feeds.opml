@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <body>
+    <outline text="all">
+      <outline htmlUrl="https://www.eff.org/rss/updates.xml" xmlUrl="https://www.eff.org/rss/updates.xml" text="Deeplinks" type="rss" title="Deeplinks" />
+      <outline xmlUrl="https://www.pine64.org/feed/" htmlUrl="https://www.pine64.org/" title="PINE64" type="rss" text="PINE64" />
+      <outline text="Planet GNOME" xmlUrl="https://planet.gnome.org/rss10.xml" htmlUrl="https://planet.gnome.org/" title="Planet GNOME" type="rss" />
+      <outline type="rss" htmlUrl="https://krebsonsecurity.com/" title="Krebs on Security" xmlUrl="https://krebsonsecurity.com/feed/" text="Krebs on Security" />
+      <outline xmlUrl="https://fedoramagazine.org/feed/" htmlUrl="https://fedoramagazine.org/" type="rss" text="Fedora Magazine" title="Fedora Magazine" />
+      <outline htmlUrl="https://ubuntu.com//blog/feed" title="Blog" type="rss" xmlUrl="https://ubuntu.com/blog/feed" text="Blog" />
+      <outline type="rss" title="Ars Technica" xmlUrl="http://feeds.arstechnica.com/arstechnica/index" htmlUrl="https://arstechnica.com/" text="Ars Technica" />
+      <outline title="Phoronix" htmlUrl="https://www.phoronix.com/" text="Phoronix" type="rss" xmlUrl="https://www.phoronix.com/rss.php" />
+      <outline xmlUrl="https://feeds.feedburner.com/d0od" title="OMG! Ubuntu!" text="OMG! Ubuntu!" htmlUrl="https://www.omgubuntu.co.uk/" type="rss" />
+      <outline text="Hackaday" htmlUrl="https://hackaday.com/" type="rss" xmlUrl="https://hackaday.com/feed/" title="Hackaday" />
+      <outline text="GabMus&apos;s Dev Log" type="rss" htmlUrl="https://gabmus.org/" title="GabMus&apos;s Dev Log" xmlUrl="https://gabmus.org/index.xml" />
+      <outline xmlUrl="https://www.linuxuprising.com/feeds/posts/default" title="Linux Uprising Blog" type="rss" text="Linux Uprising Blog" htmlUrl="https://www.linuxuprising.com/" />
+      <outline text="LWN.net" type="rss" xmlUrl="https://lwn.net/headlines/rss" htmlUrl="https://lwn.net/" title="LWN.net" />
+      <outline text="Arch Linux" title="Arch Linux" type="rss" xmlUrl="https://www.archlinux.org/feeds/news/" htmlUrl="https://www.archlinux.org/news/" />
+      <outline text="turnoff.us" type="rss" xmlUrl="https://turnoff.us/feed.xml" htmlUrl="http://turnoff.us/" title="turnoff.us" />
+      <outline htmlUrl="https://cockpit-project.org/" text="Cockpit Project" xmlUrl="https://cockpit-project.org/blog/feeds/all.atom.xml" title="Cockpit Project" type="rss" />
+      <outline xmlUrl="https://dolphin-emu.org/blog/feeds/" type="rss" text="Dolphin Emu" title="Dolphin Emu" htmlUrl="https://dolphin-emu.org/blog/" />
+      <outline type="rss" htmlUrl="https://blog.elementary.io/" xmlUrl="https://blog.elementary.io/feed.xml" title="elementary Blog" text="elementary Blog" />
+      <outline xmlUrl="https://drewdevault.com/blog/index.xml" text="Drew DeVault&apos;s blog" htmlUrl="https://drewdevault.com/" type="rss" title="Drew DeVault&apos;s blog" />
+    </outline>
+  </body>
+</opml>
