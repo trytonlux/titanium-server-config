@@ -27,9 +27,6 @@ ExecStart=/usr/bin/podman run --rm -d --name {{ container_id }} \
     -v {{ mount }}:Z \
 {% endfor %}
     {{ image }}:{{ tag }}
-{% if pg_ready %}
-ExecStartPost=/bin/sh -c 'while ! /usr/bin/podman exec {{ container_id }} pg_isready -d {{ pg_ready }} >/dev/null 2>&1; do sleep 0.2; done'
-{% endif %}
 ExecStop=/usr/bin/podman stop --ignore \
     --cidfile=%t/{{ container_id }}.ctr-id
 ExecStopPost=/usr/bin/podman rm -f --ignore \
