@@ -26,7 +26,6 @@
 - name: Create 'keycloak' Database Container
   vars:
     pod: "keycloak"
-    pg_ready: "keycloak"
     container_name: "db"
     image: "docker.io/postgres"
     tag: "14-alpine"
@@ -41,6 +40,7 @@
 - name: Create 'keycloak' Container
   vars:
     pod: "keycloak"
+    db_ready: "keycloak"
     container_name: "keycloak"
     image: "quay.io/keycloak/keycloak"
     tag: "15.0.2"
