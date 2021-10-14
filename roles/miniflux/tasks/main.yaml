@@ -26,6 +26,7 @@
 - name: Create 'miniflux' Database Container
   vars:
     pod: "miniflux"
+    pg_ready: "miniflux"
     container_name: "db"
     image: "docker.io/postgres"
     tag: "14-alpine"

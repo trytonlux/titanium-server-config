@@ -26,6 +26,7 @@
 - name: Create 'keycloak' Database Container
   vars:
     pod: "keycloak"
+    pg_ready: "keycloak"
     container_name: "db"
     image: "docker.io/postgres"
     tag: "14-alpine"
