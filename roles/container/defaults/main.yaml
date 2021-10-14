@@ -4,4 +4,3 @@ env_vars: []
 mounts: []
 ports: []
 pod: ""
-delay: ""
