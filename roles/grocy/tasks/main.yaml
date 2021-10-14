@@ -1,0 +1,26 @@
+---
+- name: Create 'grocy' Container Storage
+  become: true
+  file:
+    path: "/storage/containers/grocy"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0775
+
+- name: Create 'grocy' Container
+  vars:
+    container_name: "grocy"
+    image: "ghcr.io/linuxserver/grocy"
+    tag: "latest"
+    ports:
+      - host: "9283"
+        container: "80"
+    env_vars:
+      - "PUID=1000"
+      - "PGID=1000"
+      - "TZ=America/Toronto"
+    mounts:
+      - "/storage/containers/grocy:/config"
+  include_role:
+    name: container
