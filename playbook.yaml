@@ -17,6 +17,7 @@
     - firewall
     - nginx
     - homer
+    - keycloak
     - cockpit
     - transmission
     - jellyfin
