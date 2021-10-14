@@ -32,7 +32,6 @@
     owner: "root"
     group: "root"
     mode: "0644"
-    validate: /usr/sbin/nginx -t
   notify:
     - Restart nginx
 
@@ -44,7 +43,6 @@
     owner: "root"
     group: "root"
     mode: "0644"
-    validate: /usr/sbin/nginx -t
   notify:
     - Restart nginx
 
@@ -56,7 +54,6 @@
     owner: "root"
     group: "root"
     mode: "0644"
-    validate: /usr/sbin/nginx -t
   notify:
     - Restart nginx
 
@@ -69,7 +66,6 @@
     owner: "root"
     group: "root"
     mode: "0644"
-    validate: /usr/sbin/nginx -t
   with_fileglob: conf.d/*.conf
   notify:
     - Restart nginx
