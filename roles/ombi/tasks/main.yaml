@@ -12,7 +12,7 @@
   vars:
     container_name: "ombi"
     image: "ghcr.io/linuxserver/ombi"
-    tag: "latest"
+    tag: "development"
     ports:
       - host: "3579"
         container: "3579"
