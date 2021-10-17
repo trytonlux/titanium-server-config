@@ -23,5 +23,6 @@
     mounts:
       - "/storage/containers/radarr:/config"
       - "/storage/media:/data"
+      - "/var/lib/transmission/Downloads:/downloads"
   include_role:
     name: container
