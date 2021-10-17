@@ -22,7 +22,6 @@
       - "TZ=America/Toronto"
     mounts:
       - "/storage/containers/radarr:/config"
-      - "/storage/media:/data"
-      - "/var/lib/transmission/Downloads:/downloads"
+      - "/storage:/data"
   include_role:
     name: container
