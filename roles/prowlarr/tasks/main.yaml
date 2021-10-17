@@ -1,0 +1,26 @@
+---
+- name: Create 'prowlarr' Container Storage
+  become: true
+  file:
+    path: "/storage/containers/prowlarr"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0775
+
+- name: Create 'prowlarr' Container
+  vars:
+    container_name: "prowlarr"
+    image: "lscr.io/linuxserver/prowlarr"
+    tag: "develop"
+    ports:
+      - host: "9696"
+        container: "9696"
+    env_vars:
+      - "PUID=0"
+      - "PGID=0"
+      - "TZ=America/Toronto"
+    mounts:
+      - "/storage/containers/prowlarr:/config"
+  include_role:
+    name: container
