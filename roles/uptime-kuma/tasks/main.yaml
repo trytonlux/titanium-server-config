@@ -1,0 +1,22 @@
+---
+- name: Create 'uptime-kuma' Container Storage
+  become: true
+  file:
+    path: "/storage/containers/uptime-kuma"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0775
+
+- name: Create 'uptime-kuma' Container
+  vars:
+    container_name: "uptime-kuma"
+    image: "docker.io/louislam/uptime-kuma"
+    tag: "latest"
+    ports:
+      - host: "3001"
+        container: "3001"
+    mounts:
+      - "/storage/containers/uptime-kuma:/app/data"
+  include_role:
+    name: container
