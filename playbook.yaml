@@ -27,5 +27,6 @@
     - prowlarr
     - radarr
     - sonarr
+    - lidarr
     - linkding
     - uptime-kuma
