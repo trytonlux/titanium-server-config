@@ -17,6 +17,7 @@ ExecStart=/usr/bin/podman run --rm -d --name {{ container_id }} \
     --cgroups=no-conmon --sdnotify=conmon \
     --cidfile=%t/{{ container_id }}.ctr-id \
     --log-driver=journald \
+    --label "io.containers.autoupdate=registry" \
 {% if pod %}
     --pod-id-file %t/{{ pod }}.pod-id \
 {% endif %}
