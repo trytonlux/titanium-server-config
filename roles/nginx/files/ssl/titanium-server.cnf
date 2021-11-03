@@ -19,3 +19,4 @@ DNS.1 = titanium-server.lan
 DNS.2 = titanium-server.vl
 DNS.3 = *.titanium-server.lan
 DNS.4 = *.titanium-server.vl
+DNS.5 = grocy.titanium-server.lan
