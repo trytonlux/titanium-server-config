@@ -2,11 +2,15 @@
 - name: Create 'nextcloud' Container Storage
   become: true
   file:
-    path: "/storage/containers/nextcloud"
+    path: "/storage/containers/{{ item }}"
     state: directory
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0775
+  with_items:
+    - "nextcloud"
+    - "nextcloud/config"
+    - "nextcloud/data"
 
 - name: Create 'nextcloud' Container
   vars:
@@ -21,7 +25,7 @@
       - "PGID=1000"
       - "TZ=America/Toronto"
     mounts:
-      - "/storage/containers/nextcloud:/config"
-      - "/storage/files:/data"
+      - "/storage/containers/nextcloud/config:/config"
+      - "/storage/containers/nextcloud/data:/data"
   include_role:
     name: container
