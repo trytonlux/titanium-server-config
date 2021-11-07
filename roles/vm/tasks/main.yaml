@@ -34,10 +34,14 @@
     group: "storage"
     mode: 0775
 
-- name: Create Storage->Media Directory
+- name: Create Storage Directories
   become: true
   file:
-    path: /storage/media
+    path: /storage/{{ item }}
     state: directory
     group: "storage"
     mode: 0775
+  with_items:
+    - "media"
+    - "files"
+    - "files/shared"
