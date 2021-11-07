@@ -22,6 +22,6 @@
       - "TZ=America/Toronto"
     mounts:
       - "/storage/containers/lidarr:/config"
-      - "/storage:/data"
+      - "/storage/media:/data"
   include_role:
     name: container
