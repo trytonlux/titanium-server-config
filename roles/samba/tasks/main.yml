@@ -1,0 +1,6 @@
+---
+- name: Install Samba
+  become: true
+  dnf:
+    name: "samba"
+    state: present

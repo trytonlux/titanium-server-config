@@ -15,6 +15,7 @@
   roles:
     - podman
     - firewall
+    - samba
     - nginx
     - homer
     - cockpit
