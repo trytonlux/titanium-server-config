@@ -29,6 +29,9 @@
     setype: "samba_share_t"
     state: present
 
+- name: Apply SELinux File Context to Files
+  command: "restorecon -irv /storage/files"
+
 - name: Enable and Start Samba Service
   become: true
   systemd:
