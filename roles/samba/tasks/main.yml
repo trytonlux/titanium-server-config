@@ -1,6 +1,28 @@
 ---
+- name: Create Samba Group
+  become: true
+  group:
+    name: "samba"
+    state: present
+
 - name: Install Samba
   become: true
   dnf:
     name: "samba"
     state: present
+
+- name: Copy Samba Config
+  become: true
+  copy:
+    src: "smb.conf"
+    dest: "/etc/samba/smb.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+
+- name: Enable and Start Samba Service
+  become: true
+  systemd:
+    name: "smb"
+    enabled: true
+    state: started
