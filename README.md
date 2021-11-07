@@ -12,7 +12,7 @@ Playbook assumes BTRFS pool is created and mounted at /storage.
 
 While logged into server as admin user:
 
-```
+```shell
 # add user locally
 sudo useradd <username>
 
