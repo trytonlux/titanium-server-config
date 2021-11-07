@@ -39,6 +39,7 @@
   file:
     path: /storage/{{ item }}
     state: directory
+    owner: "admin"
     group: "storage"
     mode: 0775
   with_items:
