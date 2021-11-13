@@ -90,6 +90,10 @@
       port: 9092
     - name: rss
       port: 7273
+    - name: torrent
+      port: 8112
+      extra_config:
+        - "add_header X-Frame-Options SAMEORIGIN;"
   notify:
     Restart nginx
 
