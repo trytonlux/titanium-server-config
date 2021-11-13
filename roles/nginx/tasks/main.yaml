@@ -81,6 +81,9 @@
   loop:
     - name: grocy
       port: 9283
+    - name: cockpit
+      port: 9090
+      https: true
   notify:
     Restart nginx
 
