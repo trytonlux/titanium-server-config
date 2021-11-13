@@ -70,6 +70,20 @@
   notify:
     - Restart nginx
 
+- name: Template Subdomain Configs
+  become: true
+  template:
+    src: "subdomain.conf"
+    dest: "/etc/nginx/conf.d/{{ name }}"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  loop:
+    - name: grocy
+      port: 9283
+  notify:
+    Restart nginx
+
 - name: Enable and Start 'nginx' Service
   become: true
   systemd:
