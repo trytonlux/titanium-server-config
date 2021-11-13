@@ -96,6 +96,13 @@
       port: 8112
       extra_config:
         - "add_header X-Frame-Options SAMEORIGIN;"
+    - name: jellyfin
+      port: 8096
+      extra_config:
+        - "proxy_set_header Range $http_range;"
+        - "proxy_set_header If-Range $http_if_range;"
+      extra_locations:
+        - "~ (/jellyfin)?/socket"
   notify:
     Restart nginx
 
