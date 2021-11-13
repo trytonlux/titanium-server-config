@@ -1,7 +1,7 @@
 ---
 - name: Install 'podman'
   become: true
-  package:
+  dnf:
     name: "podman"
     state: present
 
