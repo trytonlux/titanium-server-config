@@ -21,6 +21,6 @@
       - PHOTOVIEW_SQLITE_PATH=/config/photoview.db
     mounts:
       - "/storage/containers/photoview:/config"
-      - "/storage/files/shared/Photos:/photos"
+      - "/storage/media/Photos:/photos"
   include_role:
     name: container
