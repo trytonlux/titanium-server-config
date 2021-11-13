@@ -92,6 +92,8 @@
       port: 7273
     - name: status
       port: 3001
+    - name: photos
+      port: 4001
     - name: torrent
       port: 8112
       extra_config:
