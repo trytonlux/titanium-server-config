@@ -74,7 +74,7 @@
   become: true
   template:
     src: "subdomain.conf"
-    dest: "/etc/nginx/conf.d/{{ name }}"
+    dest: "/etc/nginx/conf.d/{{ item.name }}.conf"
     owner: "root"
     group: "root"
     mode: "0644"
