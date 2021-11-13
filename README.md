@@ -17,7 +17,7 @@ While logged into server as admin user:
 sudo useradd <username>
 
 # add user to samba group
-sudo usermod -a -G samba tryton
+sudo usermod -a -G samba <username>
 
 # add user to samba and set their smb password
 sudo smbpasswd -a <username>
