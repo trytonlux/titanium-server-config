@@ -103,6 +103,22 @@
         - "proxy_set_header If-Range $http_if_range;"
       extra_locations:
         - "~ (/jellyfin)?/socket"
+    - name: lidarr
+      port: 8686
+      extra_locations:
+        - "~ (/lidarr)?/api"
+    - name: prowlarr
+      port: 9696
+      extra_locations:
+        - "~ (/prowlarr)?(/[0-9]+)?/api"
+    - name: sonarr
+      port: 8989
+      extra_locations:
+        - "~ (/sonarr)?/api"
+    - name: radarr
+      port: 7878
+      extra_locations:
+        - "~ (/radarr)?/api"
   notify:
     Restart nginx
 
