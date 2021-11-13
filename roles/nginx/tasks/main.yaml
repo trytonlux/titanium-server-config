@@ -84,6 +84,12 @@
     - name: cockpit
       port: 9090
       https: true
+    - name: music
+      port: 4533
+    - name: links
+      port: 9092
+    - name: rss
+      port: 7273
   notify:
     Restart nginx
 
