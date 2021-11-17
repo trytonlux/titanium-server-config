@@ -103,10 +103,6 @@
         - "proxy_set_header If-Range $http_if_range;"
       extra_locations:
         - "~ (/jellyfin)?/socket"
-    - name: lidarr
-      port: 8686
-      extra_locations:
-        - "~ (/lidarr)?/api"
     - name: prowlarr
       port: 9696
       extra_locations:
