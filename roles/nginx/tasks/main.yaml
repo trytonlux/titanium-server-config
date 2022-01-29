@@ -79,8 +79,6 @@
     group: "root"
     mode: "0644"
   loop:
-    - name: grocy
-      port: 9283
     - name: cockpit
       port: 9090
       https: true
