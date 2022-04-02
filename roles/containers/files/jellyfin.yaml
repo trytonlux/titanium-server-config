@@ -3,7 +3,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   annotations:
-    bind-mount-options:/tmp/kuma: z
+    bind-mount-options:/storage/containers/jellyfin: z
+    bind-mount-options:/storage/media: z
   labels:
     io.containers.autoupdate: registry
   name: jellyfin-pod
