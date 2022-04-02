@@ -1,0 +1,25 @@
+---
+- name: Create Kube Directory
+  file:
+    path: "~/.config/kubes"
+    state: directory
+
+- name: Copy Kube Deployments
+  copy:
+    src: "{{ item }}"
+    dest: "~/.config/kubes/{{ item | basename }}"
+  with_fileglob: "*.yaml"
+
+- name: Template Systemd Unit
+  template:
+    src: "container.service.j2"
+    dest: "~/.config/systemd/user/container@.service"
+
+- name: Enable Systemd Units
+  systemd:
+    name: "container@{{ item | basename | splitext | first }}"
+    daemon-reload: true
+    enabled: true
+    state: started
+    scope: user
+  with_fileglob: "*.yaml"

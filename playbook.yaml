@@ -17,6 +17,7 @@
     - firewall
     - samba
     - nginx
+    - containers
     - homer
     - cockpit
     - deluge
@@ -28,4 +29,3 @@
     - radarr
     - sonarr
     - linkding
-    - uptime-kuma
