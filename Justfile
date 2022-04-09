@@ -1,18 +1,2 @@
-@_default:
-    just --list
-
-@fetch:
-    vl fetch fedora-34
-
-@vm state="up":
-    vl {{state}}
-
-ssh host="vm":
-    #!/bin/sh
-    if [ "{{host}}" == "vm" ]; then
-        vl ssh titanium-server
-    fi
-    exit 0
-
-@provision host="metal":
-    ansible-playbook --limit {{host}} playbook.yaml
+@provision:
+    ansible-playbook playbook.yaml

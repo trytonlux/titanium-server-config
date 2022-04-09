@@ -1,9 +1,6 @@
 ---
 all:
   hosts:
-    vm:
-      ansible_host: 192.168.123.22
-      ansible_user: "admin"
-    metal:
+    titanium-server:
       ansible_host: 192.168.1.22
       ansible_user: "admin"
