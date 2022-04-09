@@ -14,5 +14,5 @@ ssh host="vm":
     fi
     exit 0
 
-@provision host="vm":
+@provision host="metal":
     ansible-playbook --limit {{host}} playbook.yaml
