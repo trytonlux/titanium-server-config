@@ -22,15 +22,12 @@
   notify:
     - Restart samba
 
-- name: Allow Samba to Read File Directory
+- name: Configure 'samba_export_all_rw' SELinux Policy
   become: true
-  sefcontext:
-    target: "/storage/files(/.*)?"
-    setype: "samba_share_t"
-    state: present
-
-- name: Apply SELinux File Context to Files
-  command: "restorecon -irv /storage/files"
+  seboolean:
+    name: samba_export_all_rw
+    state: true
+    persistent: true
 
 - name: Enable and Start Samba Service
   become: true
