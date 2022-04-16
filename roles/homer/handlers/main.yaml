@@ -1,7 +1,0 @@
----
-- name: Restart Homer
-  systemd:
-    name: "container-homer"
-    daemon-reload: true
-    state: restarted
-    scope: user
