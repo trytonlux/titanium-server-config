@@ -9,6 +9,14 @@
     mode: 0775
   with_fileglob: "kubes/*.yaml"
 
+- name: Copy Container Configs
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - src: "homer/config.yaml"
+      dest: "/storage/containers/homer/config.yaml"
+
 - name: Create Kube Directory
   file:
     path: "~/.config/kubes"
