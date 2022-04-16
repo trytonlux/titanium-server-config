@@ -32,4 +32,4 @@
     enabled: true
     state: started
     scope: user
-  with_fileglob: "*.yaml"
+  with_fileglob: "kubes/*.yaml"
