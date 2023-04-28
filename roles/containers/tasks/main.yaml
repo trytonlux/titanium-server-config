@@ -1,4 +1,15 @@
 ---
+- name: Create Container Storage Directories
+  become: true
+  file:
+    path: "/storage/containers/{{ item }}"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0775
+  with_items:
+    - "jellyfin"
+
 - name: Create Kube Directory
   file:
     path: "/storage/containers/kube"
