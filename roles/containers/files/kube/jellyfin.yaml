@@ -7,33 +7,32 @@ metadata:
     bind-mount-options:/storage/media: z
   labels:
     io.containers.autoupdate: registry
-  name: jellyfin-pod
+  name: jellyfin
 spec:
   containers:
-  - image: ghcr.io/linuxserver/jellyfin:latest
-    name: jellyfin
-    env:
-      - name: PUID
-        value: 0
-      - name: PGID
-        value: 0
-      - name: TZ
-        value: America/Toronto
-    ports:
-    - containerPort: 8096
-      hostPort: 8096
-    volumeMounts:
-    - mountPath: /config
-      name: config
-    - mountPath: /data
-      name: data
+    - image: ghcr.io/linuxserver/jellyfin:latest
+      name: jellyfin
+      env:
+        - name: PUID
+          value: 0
+        - name: PGID
+          value: 0
+        - name: TZ
+          value: America/Toronto
+      ports:
+        - containerPort: 8096
+          hostPort: 8096
+      volumeMounts:
+        - mountPath: /config
+          name: config
+        - mountPath: /data
+          name: data
   volumes:
-  - name: config
-    hostPath:
-      path: /storage/containers/jellyfin
-      type: Directory
-  - name: data
-    hostPath:
-      path: /storage/media
-      type: Directory
-
+    - name: config
+      hostPath:
+        path: /storage/containers/jellyfin
+        type: Directory
+    - name: data
+      hostPath:
+        path: /storage/media
+        type: Directory
