@@ -10,7 +10,7 @@ metadata:
   name: sonarr
 spec:
   containers:
-    - image: ghcr.io/linuxserver/sonarr:latest
+    - image: ghcr.io/linuxserver/sonarr:develop
       name: sonarr
       env:
         - name: PUID
