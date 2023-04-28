@@ -2,3 +2,7 @@ container_services:
   - homer
   - jellyfin
   - miniflux
+
+container_directories:
+  - jellyfin
+  - miniflux
