@@ -13,10 +13,10 @@
     - firewall
     - samba
     - nginx
-    - containers
     - cockpit
     - deluge
     - miniflux
     - prowlarr
     - radarr
     - sonarr
+    - containers
