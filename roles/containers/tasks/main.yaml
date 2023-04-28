@@ -1,43 +1,33 @@
 ---
-- name: Create Container Storage Volumes
-  become: true
-  file:
-    path: "/storage/containers/{{ item | basename | splitext | first }}"
-    state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    mode: 0775
-  with_fileglob: "kubes/*.yaml"
-
-- name: Copy Container Configs
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-  with_items:
-    - src: "homer/config.yaml"
-      dest: "/storage/containers/homer/config.yaml"
-
 - name: Create Kube Directory
   file:
-    path: "~/.config/kubes"
+    path: "/storage/containers/kube"
     state: directory
 
-- name: Copy Kube Deployments
+- name: Create Container Systemd Directory
+  file:
+    path: "~/.config/containers/systemd"
+    state: directory
+
+- name: Copy Kube Yaml Files
   copy:
-    src: "{{ item }}"
-    dest: "~/.config/kubes/{{ item | basename }}"
-  with_fileglob: "kubes/*.yaml"
+    src: "kube/{{ item }}.yaml"
+    dest: "/storage/containers/kube/{{ item }}.yaml"
+  loop:
+    - homer
 
-- name: Template Systemd Unit
+- name: Template Systemd Kube Units
   template:
-    src: "container.service.j2"
-    dest: "~/.config/systemd/user/container@.service"
+    src: "service.kube.j2"
+    dest: "~/.config/containers/systemd/{{ item }}.kube"
+  loop:
+    - homer
 
-- name: Enable Systemd Units
+- name: Start Systemd Kube Units
   systemd:
-    name: "container@{{ item | basename | splitext | first }}"
+    name: "{{ item }}"
     daemon-reload: true
-    enabled: true
     state: started
     scope: user
-  with_fileglob: "kubes/*.yaml"
+  loop:
+    - homer

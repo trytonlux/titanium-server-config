@@ -4,7 +4,7 @@ kind: Pod
 metadata:
   labels:
     io.containers.autoupdate: registry
-  name: homer-pod
+  name: homer
 spec:
   containers:
   - image: docker.io/b4bz/homer:latest
