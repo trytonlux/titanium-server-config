@@ -20,8 +20,8 @@
     path: "~/.config/containers/systemd"
     state: directory
 
-- name: Copy Kube Yaml Files
-  copy:
+- name: Template Kube Yaml Files
+  template:
     src: "kube/{{ item }}.yaml"
     dest: "/storage/containers/kube/{{ item }}.yaml"
   loop: "{{ container_services }}"
