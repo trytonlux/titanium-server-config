@@ -15,7 +15,6 @@
     - nginx
     - cockpit
     - deluge
-    - miniflux
     - prowlarr
     - radarr
     - sonarr

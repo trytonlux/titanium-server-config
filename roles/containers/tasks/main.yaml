@@ -9,6 +9,7 @@
     mode: 0775
   with_items:
     - "jellyfin"
+    - "miniflux"
 
 - name: Create Kube Directory
   file:
