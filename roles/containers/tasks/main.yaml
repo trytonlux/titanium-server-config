@@ -13,15 +13,13 @@
   copy:
     src: "kube/{{ item }}.yaml"
     dest: "/storage/containers/kube/{{ item }}.yaml"
-  loop:
-    - homer
+  loop: "{{ container_services }}"
 
 - name: Template Systemd Kube Units
   template:
     src: "service.kube.j2"
     dest: "~/.config/containers/systemd/{{ item }}.kube"
-  loop:
-    - homer
+  loop: "{{ container_services }}"
 
 - name: Start Systemd Kube Units
   systemd:
@@ -29,5 +27,4 @@
     daemon-reload: true
     state: started
     scope: user
-  loop:
-    - homer
+  loop: "{{ container_services }}"
