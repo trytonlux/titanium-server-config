@@ -2,7 +2,13 @@ container_services:
   - homer
   - jellyfin
   - miniflux
+  - prowlarr
+  - radarr
+  - sonarr
 
 container_directories:
   - jellyfin
   - miniflux
+  - prowlarr
+  - radarr
+  - sonarr

@@ -15,9 +15,5 @@
     - nginx
     - cockpit
     - deluge
-    - prowlarr
-    - radarr
-    - sonarr
     - name: containers
       tags: containers
-
