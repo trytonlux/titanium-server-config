@@ -19,4 +19,6 @@
     - prowlarr
     - radarr
     - sonarr
-    - containers
+    - name: containers
+      tags: containers
+
