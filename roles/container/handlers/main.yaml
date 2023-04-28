@@ -1,7 +1,0 @@
----
-- name: Restart Container
-  systemd:
-    name: "container-{{ container_id }}"
-    daemon-reload: true
-    state: restarted
-    scope: user
