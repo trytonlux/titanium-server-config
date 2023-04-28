@@ -13,10 +13,7 @@
     - firewall
     - samba
     - nginx
-    - containers
     - cockpit
     - deluge
-    - miniflux
-    - prowlarr
-    - radarr
-    - sonarr
+    - name: containers
+      tags: containers
