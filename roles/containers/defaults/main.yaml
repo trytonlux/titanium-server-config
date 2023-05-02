@@ -5,6 +5,7 @@ container_services:
   - prowlarr
   - radarr
   - sonarr
+  - nextcloud
 
 container_directories:
   - jellyfin
