@@ -12,6 +12,11 @@ spec:
       ports:
         - containerPort: 80
           hostPort: 3443
+      env:
+        - name: APACHE_DISABLE_REWRITE_IP
+          value: 1
+        - name: TRUSTED_PROXIES
+          value: 10.0.0.0/8
       volumeMounts:
         - mountPath: /var/www/html
           name: data
