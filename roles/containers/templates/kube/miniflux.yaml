@@ -11,6 +11,9 @@ spec:
   containers:
     - name: miniflux
       image: docker.io/miniflux/miniflux:latest
+      ports:
+        - containerPort: 8080
+          hostPort: 7273
       env:
         - name: DATABASE_URL
           value: postgres://miniflux:miniflux@localhost/miniflux?sslmode=disable
@@ -29,9 +32,6 @@ spec:
           value: miniflux
         - name: POSTGRES_PASSWORD
           value: miniflux
-      ports:
-        - containerPort: 8080
-          hostPort: 7273
       volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: data
