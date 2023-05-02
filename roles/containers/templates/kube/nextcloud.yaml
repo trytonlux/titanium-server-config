@@ -12,15 +12,6 @@ spec:
       ports:
         - containerPort: 80
           hostPort: 3443
-      env:
-        - name: POSTGRES_HOST
-          value: localhost
-        - name: POSTGRES_DB
-          value: nextcloud
-        - name: POSTGRES_USER
-          value: nextcloud
-        - name: POSTGRES_USER
-          value: nextcloud
       volumeMounts:
         - mountPath: /var/www/html
           name: data
