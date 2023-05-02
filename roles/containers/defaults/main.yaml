@@ -16,3 +16,4 @@ container_directories:
   - nextcloud
   - nextcloud/data
   - nextcloud/db
+  - nextcloud/tmp
