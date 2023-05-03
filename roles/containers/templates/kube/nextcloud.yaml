@@ -42,6 +42,13 @@ spec:
         path: /storage/containers/nextcloud/db
         type: Directory
     - name: tmp
-      hostPath:
-        path: /storage/containers/nextcloud/tmp
-        type: Directory
+      persistentVolumeClaim:
+        claimName: nextcloud-tmp
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nextcloud-tmp
+spec:
+  accessModes:
+    - ReadWriteOnce
