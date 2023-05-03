@@ -20,8 +20,6 @@ spec:
       volumeMounts:
         - mountPath: /var/www/html
           name: data
-        - mountPath: /tmp
-          name: tmp
     - name: db
       image: docker.io/postgres:15-alpine
       env:
@@ -41,14 +39,3 @@ spec:
       hostPath:
         path: /storage/containers/nextcloud/db
         type: Directory
-    - name: tmp
-      persistentVolumeClaim:
-        claimName: nextcloud-tmp
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: nextcloud-tmp
-spec:
-  accessModes:
-    - ReadWriteOnce
