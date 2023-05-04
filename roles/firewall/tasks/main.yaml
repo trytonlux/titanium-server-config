@@ -1,20 +1,20 @@
 ---
 - name: Install firewalld Python Bindings
   become: true
-  dnf:
+  ansible.builtin.dnf:
     name: python3-firewall
     state: present
 
 - name: Start and Enable firewalld Service
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: firewalld
     enabled: true
     state: started
 
 - name: Create Allow Rules for Services
   become: true
-  firewalld:
+  ansible.posix.firewalld:
     service: "{{ item }}"
     permanent: true
     immediate: true

@@ -1,27 +1,27 @@
 ---
 - name: Install 'podman'
   become: true
-  dnf:
+  ansible.builtin.dnf:
     name: "podman"
     state: present
 
 - name: Enable Systemd Lingering for '{{ ansible_user_id }}'
   become: true
-  command:
+  ansible.builtin.command:
     cmd: "loginctl enable-linger {{ ansible_user_id }}"
     creates: "/var/lib/systemd/linger/{{ ansible_user_id }}"
 
-- name: Create '{{ ansible_user_id }}' Systemd User Directory
-  file:
+- name: Create Systemd User Directory for '{{ ansible_user_id }}'
+  ansible.builtin.file:
     path: "~/.config/systemd/user"
     state: directory
+    mode: "0644"
 
 - name: Create Storage->Containers Directory
   become: true
-  file:
+  ansible.builtin.file:
     path: "/storage/containers"
     state: directory
     owner: "{{ ansible_user_id }}"
     group: "storage"
-    mode: 0775
-
+    mode: "0775"

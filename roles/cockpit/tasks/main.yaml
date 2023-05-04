@@ -1,13 +1,13 @@
 ---
 - name: Install Cockpit PCP
   become: true
-  dnf:
+  ansible.builtin.dnf:
     name: "cockpit-pcp"
     state: present
 
 - name: Copy Cockpit Config
   become: true
-  copy:
+  ansible.builtin.copy:
     src: "cockpit.conf"
     dest: "/etc/cockpit/cockpit.conf"
     owner: "root"
@@ -16,14 +16,14 @@
 
 - name: Enable and Start 'pmlogger' Service
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: "pmlogger.service"
     enabled: true
     state: started
 
 - name: Enable and Start 'cockpit' Socket
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: "cockpit.socket"
     enabled: true
     state: started

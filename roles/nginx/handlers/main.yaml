@@ -1,6 +1,6 @@
 ---
 - name: Restart nginx
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: "nginx"
     state: restarted

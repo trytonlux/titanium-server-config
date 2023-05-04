@@ -1,20 +1,20 @@
 ---
 - name: Install 'nginx'
   become: true
-  dnf:
+  ansible.builtin.dnf:
     name: nginx
     state: present
 
 - name: Configure 'httpd_can_network_connect' SELinux Policy
   become: true
-  seboolean:
+  ansible.posix.seboolean:
     name: httpd_can_network_connect
     state: true
     persistent: true
 
 - name: Copy Certificates
   become: true
-  copy:
+  ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/etc/nginx/ssl/"
     owner: "root"
@@ -26,7 +26,7 @@
 
 - name: Copy 'nginx' Config
   become: true
-  copy:
+  ansible.builtin.copy:
     src: "nginx.conf"
     dest: "/etc/nginx/nginx.conf"
     owner: "root"
@@ -37,7 +37,7 @@
 
 - name: Copy 'nginx' SSL Config
   become: true
-  copy:
+  ansible.builtin.copy:
     src: "ssl.conf"
     dest: "/etc/nginx/ssl.conf"
     owner: "root"
@@ -48,7 +48,7 @@
 
 - name: Copy 'nginx' Proxy Config
   become: true
-  copy:
+  ansible.builtin.copy:
     src: "proxy.conf"
     dest: "/etc/nginx/proxy.conf"
     owner: "root"
@@ -60,7 +60,7 @@
 # https://github.com/linuxserver/reverse-proxy-confs
 - name: Copy Subdomain Configs
   become: true
-  copy:
+  ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/etc/nginx/conf.d/{{ item | basename }}"
     owner: "root"
@@ -72,7 +72,7 @@
 
 - name: Enable and Start 'nginx' Service
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: "nginx"
     enabled: true
     state: started

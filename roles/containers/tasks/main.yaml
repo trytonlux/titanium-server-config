@@ -1,39 +1,45 @@
 ---
 - name: Create Container Storage Directories
   become: true
-  file:
+  ansible.builtin.file:
     path: "/storage/containers/{{ item }}"
     state: directory
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
-    mode: 0775
+    mode: "0775"
     setype: container_file_t
   loop: "{{ container_directories }}"
 
 - name: Create Kube Directory
-  file:
+  ansible.builtin.file:
     path: "/storage/containers/kube"
     state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: "0644"
 
 - name: Create Container Systemd Directory
-  file:
+  ansible.builtin.file:
     path: "~/.config/containers/systemd"
     state: directory
+    mode: "0755"
 
 - name: Template Kube Yaml Files
-  template:
+  ansible.builtin.template:
     src: "kube/{{ item }}.yaml"
     dest: "/storage/containers/kube/{{ item }}.yaml"
+    mode: "0644"
   loop: "{{ container_services }}"
 
 - name: Template Systemd Kube Units
-  template:
+  ansible.builtin.template:
     src: "service.kube.j2"
     dest: "~/.config/containers/systemd/{{ item }}.kube"
+    mode: "0644"
   loop: "{{ container_services }}"
 
 - name: Start Systemd Kube Units
-  systemd:
+  ansible.builtin.systemd:
     name: "{{ item }}"
     daemon-reload: true
     state: started

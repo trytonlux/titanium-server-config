@@ -1,19 +1,19 @@
 ---
 - name: Create Samba Group
   become: true
-  group:
+  ansible.builtin.group:
     name: "samba"
     state: present
 
 - name: Install Samba
   become: true
-  dnf:
+  ansible.builtin.dnf:
     name: "samba"
     state: present
 
 - name: Copy Samba Config
   become: true
-  copy:
+  ansible.builtin.copy:
     src: "smb.conf"
     dest: "/etc/samba/smb.conf"
     owner: "root"
@@ -24,14 +24,14 @@
 
 - name: Configure 'samba_export_all_rw' SELinux Policy
   become: true
-  seboolean:
+  ansible.posix.seboolean:
     name: samba_export_all_rw
     state: true
     persistent: true
 
 - name: Enable and Start Samba Service
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: "smb"
     enabled: true
     state: started

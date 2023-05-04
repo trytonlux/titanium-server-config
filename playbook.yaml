@@ -1,13 +1,6 @@
 ---
 - hosts: all
-  tasks:
-  - name: Update Packages
-    become: true
-    dnf:
-      name: "*"
-      state: latest
-
-- hosts: all
+  name: Configure Server
   roles:
     - podman
     - firewall
@@ -15,5 +8,5 @@
     - nginx
     - cockpit
     - deluge
-    - name: containers
+    - role: containers
       tags: containers
