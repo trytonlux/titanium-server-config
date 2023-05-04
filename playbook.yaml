@@ -2,6 +2,7 @@
 - hosts: all
   name: Configure Server
   roles:
+    - upgrade
     - podman
     - firewall
     - samba

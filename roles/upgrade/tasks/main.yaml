@@ -1,0 +1,7 @@
+---
+- name: Upgrade Packages
+  become: true
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+    update_only: true
