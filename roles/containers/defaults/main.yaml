@@ -1,3 +1,4 @@
+---
 container_services:
   - homer
   - jellyfin
@@ -5,7 +6,6 @@ container_services:
   - prowlarr
   - radarr
   - sonarr
-  - nextcloud
 
 container_directories:
   - jellyfin
@@ -13,6 +13,3 @@ container_directories:
   - prowlarr
   - radarr
   - sonarr
-  - nextcloud
-  - nextcloud/data
-  - nextcloud/db
