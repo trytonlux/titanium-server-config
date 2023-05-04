@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "**/roles/containers/templates/kube/*yaml": "yaml",
+        "*.yaml": "ansible"
+    }
+}
