@@ -6,7 +6,8 @@
     - podman
     - firewall
     - samba
-    - nginx
+    - role: nginx
+      tags: containers
     - cockpit
     - deluge
     - role: containers
