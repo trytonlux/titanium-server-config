@@ -16,7 +16,7 @@
     state: directory
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
-    mode: "0644"
+    mode: "0744"
 
 - name: Create Container Systemd Directory
   ansible.builtin.file:
