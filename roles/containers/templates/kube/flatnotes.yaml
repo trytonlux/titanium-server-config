@@ -15,9 +15,9 @@ spec:
         - name: FLATNOTES_USERNAME
           value: tryton
         - name: FLATNOTES_PASSWORD
-          value: test
+          value: "{{ flatnotes_password }}"
         - name: FLATNOTES_SECRET_KEY
-          value: test
+          value: "{{ flatnotes_secret_key }}"
       ports:
         - containerPort: 8080
           hostPort: 6464
