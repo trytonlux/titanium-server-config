@@ -10,6 +10,8 @@ spec:
     - image: docker.io/dullage/flatnotes:latest
       name: flatnotes
       env:
+        - name: GUID
+          value: "0"
         - name: FLATNOTES_AUTH_TYPE
           value: password
         - name: FLATNOTES_USERNAME
