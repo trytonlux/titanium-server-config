@@ -6,6 +6,7 @@ container_services:
   - prowlarr
   - radarr
   - sonarr
+  - flatnotes
 
 container_directories:
   - jellyfin
@@ -13,3 +14,4 @@ container_directories:
   - prowlarr
   - radarr
   - sonarr
+  - flatnotes
