@@ -24,5 +24,5 @@ spec:
         type: Directory
     - name: data
       hostPath:
-        path: /storage/media
+        path: /storage/media/Books
         type: Directory
