@@ -7,6 +7,7 @@ container_services:
   - radarr
   - sonarr
   - flatnotes
+  - stump
 
 container_directories:
   - jellyfin
@@ -15,3 +16,4 @@ container_directories:
   - radarr
   - sonarr
   - flatnotes
+  - stump

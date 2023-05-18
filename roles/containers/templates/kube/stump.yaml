@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    io.containers.autoupdate: registry
+  name: stump
+spec:
+  containers:
+    - image: docker.io/aaronleopold/stump:nightly
+      name: stump
+      ports:
+        - containerPort: 10801
+          hostPort: 10801
+      volumeMounts:
+        - mountPath: /config
+          name: config
+        - mountPath: /data
+          name: data
+  volumes:
+    - name: config
+      hostPath:
+        path: /storage/containers/stump
+        type: Directory
+    - name: data
+      hostPath:
+        path: /storage/media
+        type: Directory
