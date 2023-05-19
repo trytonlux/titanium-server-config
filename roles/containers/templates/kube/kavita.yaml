@@ -4,23 +4,23 @@ kind: Pod
 metadata:
   labels:
     io.containers.autoupdate: registry
-  name: stump
+  name: kavita
 spec:
   containers:
-    - image: docker.io/aaronleopold/stump:nightly
-      name: stump
+    - image: docker.io/kizaing/kavita:latest
+      name: kavita
       ports:
-        - containerPort: 10801
+        - containerPort: 5000
           hostPort: 10801
       volumeMounts:
         - mountPath: /config
           name: config
-        - mountPath: /data
+        - mountPath: /kavita/config
           name: data
   volumes:
     - name: config
       hostPath:
-        path: /storage/containers/stump
+        path: /storage/containers/kavita
         type: Directory
     - name: data
       hostPath:
