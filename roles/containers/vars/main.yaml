@@ -7,7 +7,7 @@ container_services:
   - radarr
   - sonarr
   - flatnotes
-  - stump
+  - kavita
   - navidrome
 
 container_directories:
@@ -17,5 +17,5 @@ container_directories:
   - radarr
   - sonarr
   - flatnotes
-  - stump
+  - kavita
   - navidrome
