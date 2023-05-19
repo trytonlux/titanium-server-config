@@ -13,16 +13,16 @@ spec:
         - containerPort: 5000
           hostPort: 10801
       volumeMounts:
-        - mountPath: /config
-          name: config
         - mountPath: /kavita/config
-          name: data
+          name: config
+        - mountPath: /books
+          name: books
   volumes:
     - name: config
       hostPath:
         path: /storage/containers/kavita
         type: Directory
-    - name: data
+    - name: books
       hostPath:
         path: /storage/media/Books
         type: Directory
