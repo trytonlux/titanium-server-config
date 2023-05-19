@@ -8,6 +8,7 @@ container_services:
   - sonarr
   - flatnotes
   - stump
+  - navidrome
 
 container_directories:
   - jellyfin
@@ -17,3 +18,4 @@ container_directories:
   - sonarr
   - flatnotes
   - stump
+  - navidrome
