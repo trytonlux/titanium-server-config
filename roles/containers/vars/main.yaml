@@ -8,6 +8,7 @@ container_services:
   - sonarr
   - flatnotes
   - navidrome
+  - romm
 
 container_directories:
   - jellyfin
@@ -17,3 +18,5 @@ container_directories:
   - sonarr
   - flatnotes
   - navidrome
+  - romm/resources
+  - romm/database
