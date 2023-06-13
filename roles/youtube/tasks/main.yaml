@@ -1,0 +1,47 @@
+---
+- name: Install 'yt-dlp'
+  become: true
+  ansible.builtin.dnf:
+    name: "yt-dlp"
+    state: present
+
+- name: Copy Scripts
+  become: true
+  ansible.builtin.template:
+    src: "{{ item }}.sh"
+    dest: "/usr/local/bin/{{ item }}"
+    owner: "root"
+    mode: "0755"
+  loop:
+    - "youtube-download"
+    - "youtube-cleanup"
+
+- name: Copy Channels Config
+  ansible.builtin.copy:
+    src: "youtube-channels.txt"
+    dest: "~/.config/youtube-channels.txt"
+    owner: "{{ ansible_user }}"
+    mode: "0644"
+
+- name: Copy Systemd Files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "~/.config/systemd/user/{{ item }}"
+    owner: "{{ ansible_user }}"
+    mode: "0644"
+  loop:
+    - "youtube-download.service"
+    - "youtube-download.timer"
+    - "youtube-cleanup.service"
+    - "youtube-cleanup.timer"
+
+- name: Enable Systemd Timers
+  ansible.builtin.systemd:
+    name: "{{ item }}.timer"
+    scope: user
+    daemon_reload: true
+    enabled: true
+    state: started
+  loop:
+    - "youtube-download"
+    - "youtube-cleanup"

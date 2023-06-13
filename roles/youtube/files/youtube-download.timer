@@ -1,0 +1,10 @@
+[Unit]
+Description=Run youtube-download hourly
+Wants=network-online.target
+After=network-online.target
+
+[Timer]
+OnCalendar=hourly
+
+[Install]
+WantedBy=timers.target

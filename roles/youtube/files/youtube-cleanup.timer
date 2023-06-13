@@ -1,0 +1,11 @@
+[Unit]
+Description=Run youtube-cleanup twice daily
+Wants=network-online.target
+After=network-online.target
+
+[Timer]
+OnCalendar=*-*-* 00:00:00
+OnCalendar=*-*-* 12:00:00
+
+[Install]
+WantedBy=timers.target

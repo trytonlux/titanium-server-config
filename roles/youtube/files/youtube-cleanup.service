@@ -1,0 +1,5 @@
+[Unit]
+Description=Cleanup Watched YouTube Videos
+
+[Service]
+ExecStart=/usr/local/bin/youtube-cleanup

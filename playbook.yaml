@@ -12,3 +12,4 @@
     - deluge
     - role: containers
       tags: containers
+    - role: youtube
