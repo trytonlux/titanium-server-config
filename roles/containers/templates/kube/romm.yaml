@@ -10,6 +10,18 @@ spec:
     - image: docker.io/zurdi15/romm:latest
       name: romm
       env:
+        - name: ROMM_DB_DRIVER
+          value: mariadb
+        - name: DB_HOST
+          value: romm
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_USER
+          value: romm
+        - name: DB_NAME
+          value: romm
+        - name: DB_PASSWD
+          value: romm
         - name: IGDB_CLIENT_ID
           value: "{{ romm_igdb_client_id }}"
         - name: IGDB_CLIENT_SECRET
@@ -22,13 +34,25 @@ spec:
       volumeMounts:
         - mountPath: /romm/resources
           name: resources
-        - mountPath: /romm/database
-          name: database
         - name: config
           mountPath: /romm/config.yml
           subPath: config.yaml
         - mountPath: /romm/library:ro
           name: roms
+    - image: docker.io/mariadb:latest
+      name: mariadb
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: romm
+        - name: MYSQL_DATABASE
+          value: romm
+        - name: MYSQL_USER
+          value: romm
+        - name: MYSQL_PASSWORD
+          value: romm
+      volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: database
   volumes:
     - name: resources
       hostPath:
