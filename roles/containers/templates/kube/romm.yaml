@@ -10,9 +10,9 @@ spec:
     - image: docker.io/zurdi15/romm:latest
       name: romm
       env:
-        - name: CLIENT_ID
+        - name: IGDB_CLIENT_ID
           value: "{{ romm_igdb_client_id }}"
-        - name: CLIENT_SECRET
+        - name: IGDB_CLIENT_SECRET
           value: "{{ romm_igdb_client_secret }}"
         - name: STEAMGRIDDB_API_KEY
           value: "{{ romm_steam_grid_api_key }}"
