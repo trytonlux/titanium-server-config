@@ -36,6 +36,12 @@ spec:
           value: "{{ romm_auth_password }}"
         - name: ENABLE_EXPERIMENTAL_REDIS
           value: "true"
+        - name: ENABLE_RESCAN_ON_FILESYSTEM_CHANGE
+          value: "true"
+        - name: ENABLE_SCHEDULED_RESCAN
+          value: "true"
+        - name: ENABLE_SCHEDULED_UPDATE_SWITCH_TITLEDB
+          value: "true"
       ports:
         - containerPort: 8080
           hostPort: 16610
