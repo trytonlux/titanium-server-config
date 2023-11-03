@@ -4,10 +4,9 @@
   ansible.builtin.file:
     path: "/storage/containers/{{ item }}"
     state: directory
-    # TODO: https://github.com/tryton-vanmeer/titanium-server-config/issues/30
-    # owner: "{{ ansible_user_id }}"
-    # group: "{{ ansible_user_id }}"
-    # mode: "0775"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: "0775"
     setype: container_file_t
   loop: "{{ container_services }}"
 
