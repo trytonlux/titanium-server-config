@@ -16,9 +16,9 @@ spec:
         - name: DATABASE_URL
           value: postgres://miniflux:miniflux@localhost/miniflux?sslmode=disable
         - name: RUN_MIGRATIONS
-          value: 1
+          value: "1"
         - name: CREATE_ADMIN
-          value: 1
+          value: "1"
         - name: ADMIN_USERNAME
           value: admin
         - name: ADMIN_PASSWORD
