@@ -9,7 +9,7 @@
     # group: "{{ ansible_user_id }}"
     # mode: "0775"
     setype: container_file_t
-  loop: "{{ container_directories }}"
+  loop: "{{ container_services }}"
 
 - name: Create Kube Directory
   ansible.builtin.file:
