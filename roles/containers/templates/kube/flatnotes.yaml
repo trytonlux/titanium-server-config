@@ -29,5 +29,5 @@ spec:
   volumes:
     - name: data
       hostPath:
-        path: /storage/containers/flatnotes
-        type: Directory
+        path: /storage/containers/flatnotes/data
+        type: DirectoryOrCreate

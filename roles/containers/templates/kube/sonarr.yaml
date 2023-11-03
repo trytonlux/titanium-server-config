@@ -27,8 +27,8 @@ spec:
   volumes:
     - name: config
       hostPath:
-        path: /storage/containers/sonarr
-        type: Directory
+        path: /storage/containers/sonarr/config
+        type: DirectoryOrCreate
     - name: data
       hostPath:
         path: /storage/media

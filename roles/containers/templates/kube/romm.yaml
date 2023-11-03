@@ -67,11 +67,11 @@ spec:
     - name: resources
       hostPath:
         path: /storage/containers/romm/resources
-        type: Directory
+        type: DirectoryOrCreate
     - name: database
       hostPath:
         path: /storage/containers/romm/database
-        type: Directory
+        type: DirectoryOrCreate
     - name: config
       configMap:
         name: romm

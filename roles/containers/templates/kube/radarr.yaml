@@ -27,8 +27,8 @@ spec:
   volumes:
     - name: config
       hostPath:
-        path: /storage/containers/radarr
-        type: Directory
+        path: /storage/containers/radarr/config
+        type: DirectoryOrCreate
     - name: data
       hostPath:
         path: /storage/media

@@ -25,5 +25,5 @@ spec:
   volumes:
     - name: config
       hostPath:
-        path: /storage/containers/prowlarr
-        type: Directory
+        path: /storage/containers/prowlarr/config
+        type: DirectoryOrCreate

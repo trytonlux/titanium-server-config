@@ -27,8 +27,8 @@ spec:
   volumes:
     - name: config
       hostPath:
-        path: /storage/containers/jellyfin
-        type: Directory
+        path: /storage/containers/jellyfin/config
+        type: DirectoryOrCreate
     - name: data
       hostPath:
         path: /storage/media
