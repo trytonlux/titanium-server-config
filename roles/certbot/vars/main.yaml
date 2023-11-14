@@ -1,0 +1,7 @@
+certbot_secrets_path: "/etc/letsencrypt/secrets/cloudflare.ini"
+certbot_fqdn: "*.titanium-server.thelux.family"
+certbot_command: >-
+  certbot certonly --no-eff-email --agree-tos
+  --preferred-challenges dns-01 --dns-cloudflare
+  --dns-cloudflare-credentials {{ certbot_secrets_path }}
+  -d {{ certbot_fqdn }}
