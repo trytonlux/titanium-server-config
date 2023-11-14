@@ -12,18 +12,6 @@
     state: true
     persistent: true
 
-- name: Copy Certificates
-  become: true
-  ansible.builtin.copy:
-    src: "{{ item }}"
-    dest: "/etc/nginx/ssl/"
-    owner: "root"
-    group: "nginx"
-    mode: "0640"
-  loop:
-    - "ssl/titanium-server.crt"
-    - "ssl/titanium-server.key"
-
 - name: Copy 'nginx' Config
   become: true
   ansible.builtin.copy:
