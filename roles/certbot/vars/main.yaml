@@ -5,3 +5,4 @@ certbot_command: >-
   --preferred-challenges dns-01 --dns-cloudflare
   --dns-cloudflare-credentials {{ certbot_secrets_path }}
   -d {{ certbot_fqdn }},*.{{ certbot_fqdn }}
+  --post-hook "systemctl restart nginx"
