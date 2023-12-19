@@ -69,6 +69,9 @@ spec:
           name: database
     - image: docker.io/redis:alpine
       name: redis
+      volumeMounts:
+        - mountPath: /data
+          name: redis
   volumes:
     - name: resources
       hostPath:
@@ -77,6 +80,10 @@ spec:
     - name: database
       hostPath:
         path: /storage/containers/romm/database
+        type: DirectoryOrCreate
+    - name: redis
+      hostPath:
+        path: /storage/containers/romm/redis
         type: DirectoryOrCreate
     - name: config
       configMap:
