@@ -5,5 +5,8 @@ Before=local-fs.target
 [Kube]
 Yaml=/storage/containers/kube/{{ item }}.yaml
 
+[Service]
+Restart=on-failure
+
 [Install]
 WantedBy=multi-user.target default.target
