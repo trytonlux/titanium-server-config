@@ -7,7 +7,7 @@ metadata:
   name: romm
 spec:
   containers:
-    - image: docker.io/zurdi15/romm:latest
+    - image: docker.io/rommapp/romm:latest
       name: romm
       env:
         - name: ROMM_DB_DRIVER
