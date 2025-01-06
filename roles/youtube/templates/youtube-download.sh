@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FORMAT='(bestvideo[vcodec!=vp9.2]/bestvideo)+(bestvideo[acodec^=opus]/bestaudio)/best'
+FORMAT='(bestvideo[vcodec!=vp9.2][filesize<=2G]/bestvideo)+(bestvideo[acodec^=opus]/bestaudio)/best'
 FILENAME='/storage/media/YouTube/%(upload_date)s - %(uploader)s - %(title)s [%(id)s]'
 HISTORY_FILE="${HOME}/.cache/youtube-history.txt"
 CHANNELS_LIST="${HOME}/.config/youtube-channels.txt"
