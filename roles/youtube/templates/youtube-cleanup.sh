@@ -15,11 +15,12 @@ cd "$YOUTUBE_PATH" || exit 2
 
 while read -r video; do
     if [ -n "$video" ]; then
-        filename=("$video"*)
+        filenames=(*"$video"*)
         echo "$video"
-        echo "Removing ${filename[0]}"
-        rm "${filename[0]}"
-
+        for file in "${filenames[@]}"; do
+            echo "Removing $file"
+            rm "$file"
+        done
         echo ""
     fi
 done <<<"$played_videos"
