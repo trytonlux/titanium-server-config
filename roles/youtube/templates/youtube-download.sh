@@ -19,4 +19,5 @@ yt-dlp -f "$FORMAT" \
     --embed-thumbnail \
     --parse-metadata "%(uploader)s:%(meta_artist)s" \
     --parse-metadata "%(title)s:%(meta_title)s" \
-    --merge-output-format "mkv"
+    --merge-output-format "mkv" \
+    --write-info-json
