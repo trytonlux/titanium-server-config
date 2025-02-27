@@ -15,6 +15,6 @@ yt-dlp -f "$FORMAT" \
     --no-continue \
     --ignore-errors \
     --embed-chapters \
+    --embed-thumbnail \
     --merge-output-format "mkv" \
-    --write-info-json \
-    --write-thumbnail
+    --write-info-json
