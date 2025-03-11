@@ -10,11 +10,11 @@ spec:
     - image: docker.io/deluan/navidrome:latest
       name: navidrome
       env:
-        - name: ND_SCANSCHEDULE
-          value: "@hourly"
+        - name: ND_SCANNER_SCHEDULE
+          value: "@monthly"
         - name: ND_PROMETHEUS_ENABLED
           value: "true"
-        - name: CLIENT_ND_SPOTIFY_IDSECRET
+        - name: ND_SPOTIFY_ID
           value: "{{ navidrome_spotify_client_id }}"
         - name: ND_SPOTIFY_SECRET
           value: "{{ navidrome_spotify_client_secret }}"
