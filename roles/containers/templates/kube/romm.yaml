@@ -49,7 +49,7 @@ spec:
         - mountPath: /romm/resources
           name: resources
         - name: config
-          mountPath: /romm/config.yml
+          mountPath: /romm/config/config.yml
           subPath: config.yaml
         - mountPath: /romm/library:ro
           name: roms
