@@ -15,4 +15,4 @@ yt-dlp -f "$FORMAT" \
     --no-continue \
     --ignore-errors \
     --embed-chapters \
-    --merge-output-format "mkv" \
+    --merge-output-format "mp4" \
