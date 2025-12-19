@@ -2,8 +2,10 @@
 Description=Show Media Manager
 
 [Container]
+Label=io.containers.autoupdate=registry
 Image=ghcr.io/linuxserver/sonarr:latest
 PublishPort=8989:8989
+
 Volume=/storage/containers/sonarr/config:/config
 Volume=/storage/media:/data
 

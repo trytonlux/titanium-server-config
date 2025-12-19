@@ -1,0 +1,22 @@
+[Unit]
+Description=Notes
+
+[Container]
+Label=io.containers.autoupdate=registry
+Image=docker.io/dullage/flatnotes:latest
+PublishPort=6464:8080
+
+Volume=/storage/containers/flatnotes/data:/data
+
+Environment=FLATNOTES_AUTH_TYPE=password
+Environment=FLATNOTES_USERNAME=tryton
+
+Secret=flatnotes_password,type=env,target=FLATNOTES_PASSWORD
+Secret=flatnotes_secret_key,type=env,target=FLATNOTES_SECRET_KEY
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -9,8 +9,6 @@
       tags: containers
     - cockpit
     - deluge
-    - role: containers
-      tags: containers
     - role: quadlet
       tags: containers
     - role: youtube

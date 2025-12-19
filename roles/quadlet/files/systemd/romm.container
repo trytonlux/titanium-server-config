@@ -1,0 +1,35 @@
+[Unit]
+Description=Rom Manager
+Requires=romm-db.container
+After=romm-db.container
+
+[Container]
+Pod=romm.pod
+Label=io.containers.autoupdate=registry
+Image=docker.io/rommapp/romm:latest
+
+Volume=/storage/containers/romm/resources:/romm/resources
+Volume=/storage/media/Roms:/romm/library:ro
+
+Environment=ROMM_DB_DRIVER=mariadb
+Environment=DB_HOST=romm
+Environment=DB_PORT=3306
+Environment=DB_USER=romm
+Environment=DB_NAME=romm
+Environment=DB_PASSWD=romm
+Environment=ENABLE_RESCAN_ON_FILESYSTEM_CHANGE=true
+Environment=ENABLE_SCHEDULED_RESCAN=true
+Environment=ENABLE_SCHEDULED_UPDATE_SWITCH_TITLEDB=true
+
+Secret=romm_igdb_client_id,type=env,target=IGDB_CLIENT_ID
+Secret=romm_igdb_client_secret,type=env,target=IGDB_CLIENT_SECRET
+Secret=romm_steam_grid_api_key,type=env,target=STEAMGRIDDB_API_KEY
+Secret=romm_auth_secret_key,type=env,target=ROMM_AUTH_SECRET_KEY
+Secret=romm_auth_password,type=env,target=ROMM_AUTH_PASSWORD
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target default.target

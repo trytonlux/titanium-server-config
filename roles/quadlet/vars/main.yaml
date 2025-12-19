@@ -1,5 +1,34 @@
 quadlet_services:
+  - flatnotes
   - homer
+  - jellyfin
+  - miniflux
+  - miniflux-db
+  - navidrome
   - prowlarr
   - radarr
+  - romm
+  - romm-db
   - sonarr
+
+quadlet_pods:
+  - miniflux
+  - romm
+
+quadlet_secrets:
+  - name: "flatnotes_password"
+    data: "{{ quadlet_flatnotes_password }}"
+  - name: "flatnotes_secret_key"
+    data: "{{ quadlet_flatnotes_secret_key }}"
+  - name: "miniflux_admin_password"
+    data: "{{ quadlet_miniflux_admin_password }}"
+  - name: "romm_igdb_client_id"
+    data: "{{ quadlet_romm_igdb_client_id }}"
+  - name: "romm_igdb_client_secret"
+    data: "{{ quadlet_romm_igdb_client_secret }}"
+  - name: "romm_steam_grid_api_key"
+    data: "{{ quadlet_romm_steam_grid_api_key }}"
+  - name: "romm_auth_secret_key"
+    data: "{{ quadlet_romm_auth_secret_key }}"
+  - name: "romm_auth_password"
+    data: "{{ quadlet_romm_auth_password }}"

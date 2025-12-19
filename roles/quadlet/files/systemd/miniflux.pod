@@ -1,0 +1,3 @@
+[Pod]
+PodName=miniflux
+PublishPort=7273:8080

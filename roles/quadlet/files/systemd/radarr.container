@@ -2,8 +2,10 @@
 Description=Movie Media Manager
 
 [Container]
+Label=io.containers.autoupdate=registry
 Image=ghcr.io/linuxserver/radarr:latest
 PublishPort=7878:7878
+
 Volume=/storage/containers/radarr/config:/config
 Volume=/storage/media:/data
 

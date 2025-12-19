@@ -1,12 +1,13 @@
 [Unit]
-Description=Indexer Manager
+Description=Media Server
 
 [Container]
 Label=io.containers.autoupdate=registry
-Image=ghcr.io/linuxserver/prowlarr:latest
-PublishPort=9696:9696
+Image=ghcr.io/linuxserver/jellyfin:latest
+PublishPort=8096:8096
 
-Volume=/storage/containers/prowlarr/config:/config
+Volume=/storage/containers/jellyfin/config:/config
+Volume=/storage/media:/data
 
 Environment=PUID=0
 Environment=PGID=0

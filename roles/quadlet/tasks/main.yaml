@@ -37,17 +37,32 @@
     state: directory
     mode: "0755"
 
-- name: Copy Quadlet Container Units
+- name: Create Podman Secrets
+  containers.podman.podman_secret:
+    name: "{{ item.name }}"
+    data: "{{ item.data }}"
+  loop: "{{ quadlet_secrets }}"
+  no_log: true
+
+- name: Copy Pod Units
+  ansible.builtin.copy:
+    src: "systemd/{{ item }}.pod"
+    dest: "~/.config/containers/systemd/{{ item }}.pod"
+    mode: "0644"
+  loop: "{{ quadlet_pods }}"
+
+- name: Copy Container Units
   ansible.builtin.copy:
     src: "systemd/{{ item }}.container"
     dest: "~/.config/containers/systemd/{{ item }}.container"
     mode: "0644"
   loop: "{{ quadlet_services }}"
 
-- name: Start Quadlet Units
-  ansible.builtin.systemd:
+- name: Start Container Units
+  ansible.builtin.systemd_service:
     name: "{{ item }}"
     daemon-reload: true
+    enabled: true
     state: started
     scope: user
   loop: "{{ quadlet_services }}"

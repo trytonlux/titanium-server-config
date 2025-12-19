@@ -1,0 +1,21 @@
+[Unit]
+Description=Romm Database
+
+[Container]
+Pod=romm.pod
+Label=io.containers.autoupdate=registry
+Image=docker.io/mariadb:latest
+
+Volume=/storage/containers/romm/database:/var/lib/mysql
+
+Environment=MYSQL_ROOT_PASSWORD=romm
+Environment=MYSQL_DATABASE=romm
+Environment=MYSQL_USER=romm
+Environment=MYSQL_PASSWORD=romm
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target default.target

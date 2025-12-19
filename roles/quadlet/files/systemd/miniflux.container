@@ -1,0 +1,23 @@
+[Unit]
+Description=RSS Reader
+Requires=miniflux-db.container
+After=miniflux-db.container
+
+[Container]
+Pod=miniflux.pod
+Label=io.containers.autoupdate=registry
+Image=docker.io/miniflux/miniflux:latest
+
+Environment=DATABASE_URL=postgres://miniflux:miniflux@localhost/miniflux?sslmode=disable
+Environment=RUN_MIGRATIONS=1
+Environment=CREATE_ADMIN=1
+Environment=ADMIN_USERNAME=admin
+
+Secret=miniflux_admin_password,type=env,target=ADMIN_PASSWORD
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target default.target

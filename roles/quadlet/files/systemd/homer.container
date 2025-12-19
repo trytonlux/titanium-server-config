@@ -2,8 +2,10 @@
 Description=Homer Dashboard
 
 [Container]
+Label=io.containers.autoupdate=registry
 Image=docker.io/b4bz/homer:latest
 PublishPort=8095:8080
+
 Volume=/storage/containers/homer/config.yaml:/www/assets/config.yml
 
 [Service]
