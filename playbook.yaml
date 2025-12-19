@@ -1,6 +1,5 @@
----
-- hosts: all
-  name: Configure Server
+- name: Configure Server
+  hosts: all
   roles:
     - upgrade
     - podman
