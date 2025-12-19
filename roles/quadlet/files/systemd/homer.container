@@ -1,0 +1,14 @@
+[Unit]
+Description=Homer Dashboard
+
+[Container]
+Image=docker.io/b4bz/homer:latest
+PublishPort=8095:8080
+Volume=/storage/containers/homer/config.yaml:/www/assets/config.yml
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target default.target

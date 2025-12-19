@@ -1,0 +1,53 @@
+- name: Create Container Storage Directories
+  become: true
+  ansible.builtin.file:
+    path: "/storage/containers/{{ item }}"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: "0775"
+    setype: container_file_t
+  loop: "{{ quadlet_services }}"
+
+- name: Create Container Storage Sub-Directories
+  ansible.builtin.file:
+    path: "/storage/containers/{{ item }}"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: "0775"
+    setype: container_file_t
+  loop:
+    - "prowlarr/config"
+    - "radarr/config"
+    - "sonarr/config"
+
+- name: Copy Homer Config
+  ansible.builtin.copy:
+    src: "homer.yaml"
+    dest: "/storage/containers/homer/config.yaml"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: "0775"
+    setype: container_file_t
+
+- name: Create Container Systemd Directory
+  ansible.builtin.file:
+    path: "~/.config/containers/systemd"
+    state: directory
+    mode: "0755"
+
+- name: Copy Quadlet Container Units
+  ansible.builtin.copy:
+    src: "systemd/{{ item }}.container"
+    dest: "~/.config/containers/systemd/{{ item }}.container"
+    mode: "0644"
+  loop: "{{ quadlet_services }}"
+
+- name: Start Quadlet Units
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    daemon-reload: true
+    state: started
+    scope: user
+  loop: "{{ quadlet_services }}"

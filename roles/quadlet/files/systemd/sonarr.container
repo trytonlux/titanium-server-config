@@ -1,0 +1,19 @@
+[Unit]
+Description=Show Media Manager
+
+[Container]
+Image=ghcr.io/linuxserver/sonarr:latest
+PublishPort=8989:8989
+Volume=/storage/containers/sonarr/config:/config
+Volume=/storage/media:/data
+
+Environment=PUID=0
+Environment=PGID=0
+Environment=TZ=America/Toronto
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target default.target

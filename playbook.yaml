@@ -11,4 +11,6 @@
     - deluge
     - role: containers
       tags: containers
+    - role: quadlet
+      tags: containers
     - role: youtube
