@@ -1,2 +1,2 @@
 ---
-download_location: "/storage/media/torrents"
+deluge_download_location: "/storage/media/torrents"

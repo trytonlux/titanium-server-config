@@ -2,7 +2,7 @@
   become: true
   ansible.builtin.stat:
     path: "/etc/letsencrypt/live/{{ certbot_fqdn }}/cert.pem"
-  register: letsencrypt_cert
+  register: certbot_letsencrypt_cert
 
 - name: Install certbot
   become: true
@@ -36,4 +36,4 @@
 - name: Generate Certificate
   become: true
   ansible.builtin.command: "{{ certbot_command }}"
-  when: not letsencrypt_cert.stat.exists
+  when: not certbot_letsencrypt_cert.stat.exists
