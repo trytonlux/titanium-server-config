@@ -37,3 +37,4 @@
   become: true
   ansible.builtin.command: "{{ certbot_command }}"
   when: not certbot_letsencrypt_cert.stat.exists
+  changed_when: not certbot_letsencrypt_cert.stat.exists
