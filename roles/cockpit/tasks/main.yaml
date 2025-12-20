@@ -16,14 +16,14 @@
 
 - name: Enable and Start 'pmlogger' Service
   become: true
-  ansible.builtin.systemd:
+  ansible.builtin.systemd_service:
     name: "pmlogger.service"
     enabled: true
     state: started
 
 - name: Enable and Start 'cockpit' Socket
   become: true
-  ansible.builtin.systemd:
+  ansible.builtin.systemd_service:
     name: "cockpit.socket"
     enabled: true
     state: started

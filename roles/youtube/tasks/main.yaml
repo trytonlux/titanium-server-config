@@ -36,7 +36,7 @@
     - "youtube-cleanup.timer"
 
 - name: Enable Systemd Timers
-  ansible.builtin.systemd:
+  ansible.builtin.systemd_service:
     name: "{{ item }}.timer"
     scope: user
     daemon_reload: true
