@@ -32,3 +32,14 @@ quadlet_secrets:
     data: "{{ quadlet_romm_auth_secret_key }}"
   - name: "romm_auth_password"
     data: "{{ quadlet_romm_auth_password }}"
+
+quadlet_storage_dirs:
+  - "flatnotes/data"
+  - "jellyfin/config"
+  - "miniflux/data"
+  - "navidrome/data"
+  - "prowlarr/config"
+  - "radarr/config"
+  - "romm/database"
+  - "romm/resources"
+  - "sonarr/config"
