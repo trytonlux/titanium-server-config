@@ -2,6 +2,7 @@ quadlet_services:
   - flatnotes
   - homer
   - jellyfin
+  - kptv
   - miniflux
   - miniflux-db
   - navidrome

@@ -1,0 +1,22 @@
+[Unit]
+Description=IPTV Aggregator and Server
+
+[Container]
+Label=io.containers.autoupdate=registry
+Image=ghcr.io/kpirnie/kptv-fast:latest
+PublishPort=7777:7777
+
+Environment=CACHE_DURATION=7200
+Environment=WARM_CACHE_ON_STARTUP=true
+Environment=WARM_EPG_ON_STARTUP=true
+Environment=ENABLED_PROVIDERS=all
+Environment=GIT_COUNTRY=us,uk,ca,au
+Environment=LG_COUNTRY=us,uk,ca,au
+Environment=PLUTO_REGION=ca
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target default.target
