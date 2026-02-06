@@ -10,6 +10,12 @@ Volume=/storage/containers/navidrome/data:/data
 Volume=/storage/media/Music:/music
 
 Environment=ND_SCANNER_SCHEDULE=@monthly
+Environment=ND_DEFAULTTHEME="Spotify-ish"
+Environment=ND_ENABLESTARRATING=false
+Environment=ND_ENABLEFAVOURITES=false
+Environment=ND_LASTFM_ENABLED=false
+Environment=ND_LISTENBRAINZ_ENABLED=false
+Environment=ND_SUBSONIC_ARTISTPARTIC=true
 
 [Service]
 Restart=always
