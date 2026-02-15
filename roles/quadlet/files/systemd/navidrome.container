@@ -9,6 +9,7 @@ PublishPort=4533:4533
 Volume=/storage/containers/navidrome/data:/data
 Volume=/storage/media/Music:/music
 
+Environment=ND_IMAGECACHESIZE="1GB"
 Environment=ND_SCANNER_SCHEDULE=@monthly
 Environment=ND_DEFAULTTHEME="Spotify-ish"
 Environment=ND_ENABLESTARRATING=false
