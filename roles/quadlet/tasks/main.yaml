@@ -3,8 +3,8 @@
   ansible.builtin.file:
     path: "/storage/containers/{{ item }}"
     state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    owner: "{{ ansible_facts.user_id }}"
+    group: "{{ ansible_facts.user_id }}"
     mode: "0775"
     setype: container_file_t
   loop: "{{ quadlet_storage_dirs }}"
@@ -13,8 +13,8 @@
   ansible.builtin.copy:
     src: "homer.yaml"
     dest: "/storage/containers/homer/config.yaml"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    owner: "{{ ansible_facts.user_id }}"
+    group: "{{ ansible_facts.user_id }}"
     mode: "0775"
     setype: container_file_t
 

@@ -5,13 +5,13 @@
     name: "podman"
     state: present
 
-- name: Enable Systemd Lingering for '{{ ansible_user_id }}'
+- name: Enable Systemd Lingering for '{{ ansible_facts.user_id }}'
   become: true
   ansible.builtin.command:
-    cmd: "loginctl enable-linger {{ ansible_user_id }}"
-    creates: "/var/lib/systemd/linger/{{ ansible_user_id }}"
+    cmd: "loginctl enable-linger {{ ansible_facts.user_id }}"
+    creates: "/var/lib/systemd/linger/{{ ansible_facts.user_id }}"
 
-- name: Create Systemd User Directory for '{{ ansible_user_id }}'
+- name: Create Systemd User Directory for '{{ ansible_facts.user_id }}'
   ansible.builtin.file:
     path: "~/.config/systemd/user"
     state: directory
@@ -22,6 +22,6 @@
   ansible.builtin.file:
     path: "/storage/containers"
     state: directory
-    owner: "{{ ansible_user_id }}"
+    owner: "{{ ansible_facts.user_id }}"
     group: "storage"
     mode: "0775"
