@@ -1,0 +1,22 @@
+[Unit]
+Description=Jotty Notes and Todos
+
+[Container]
+Label=io.containers.autoupdate=registry
+Image=ghcr.io/fccview/jotty:latest
+PublishPort=6464:3000
+
+Volume=/storage/containers/jotty/data:/app/data:U
+Volume=/storage/containers/jotty/config:/app/config:U
+Volume=/storage/containers/jotty/cache:/app/.next/cache:U
+
+Environment=NODE_ENV=production
+
+User=1000
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target default.target
