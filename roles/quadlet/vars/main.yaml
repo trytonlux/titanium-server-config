@@ -1,5 +1,4 @@
 quadlet_services:
-  - flatnotes
   - homer
   - jellyfin
   - kptv
@@ -17,10 +16,6 @@ quadlet_pods:
   - romm
 
 quadlet_secrets:
-  - name: "flatnotes_password"
-    data: "{{ quadlet_flatnotes_password }}"
-  - name: "flatnotes_secret_key"
-    data: "{{ quadlet_flatnotes_secret_key }}"
   - name: "miniflux_admin_password"
     data: "{{ quadlet_miniflux_admin_password }}"
   - name: "romm_igdb_client_id"
@@ -35,7 +30,6 @@ quadlet_secrets:
     data: "{{ quadlet_romm_auth_password }}"
 
 quadlet_storage_dirs:
-  - "flatnotes/data"
   - "jellyfin/config"
   - "miniflux/data"
   - "navidrome/data"
