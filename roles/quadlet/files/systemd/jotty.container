@@ -11,6 +11,9 @@ Volume=/storage/containers/jotty/config:/app/config:U
 Volume=/storage/containers/jotty/cache:/app/.next/cache:U
 
 Environment=NODE_ENV=production
+Environment=HTTPS=true
+Environment=APP_URL=https://notes.titanium-server.thelux.family
+Environment=INTERNAL_API_URL=http://localhost:3000
 
 User=1000
 
