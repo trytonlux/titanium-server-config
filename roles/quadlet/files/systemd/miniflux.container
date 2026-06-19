@@ -13,6 +13,9 @@ Environment=RUN_MIGRATIONS=1
 Environment=CREATE_ADMIN=1
 Environment=ADMIN_USERNAME=admin
 
+HealthCmd=miniflux -healthcheck auto
+Notify=healthy
+
 Secret=miniflux_admin_password,type=env,target=ADMIN_PASSWORD
 
 [Service]

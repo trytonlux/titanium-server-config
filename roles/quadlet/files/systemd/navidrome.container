@@ -18,6 +18,9 @@ Environment=ND_LASTFM_ENABLED=false
 Environment=ND_LISTENBRAINZ_ENABLED=false
 Environment=ND_SUBSONIC_ARTISTPARTIC=true
 
+HealthCmd=wget --spider --tries=1 http://localhost:4533/health || exit 1
+Notify=healthy
+
 [Service]
 Restart=always
 TimeoutStartSec=300

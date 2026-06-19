@@ -12,6 +12,9 @@ Environment=PUID=0
 Environment=PGID=0
 Environment=TZ=America/Toronto
 
+HealthCmd=curl -f -s -o /dev/null -w "%{http_code}" localhost:9696/ping
+Notify=healthy
+
 [Service]
 Restart=always
 TimeoutStartSec=300

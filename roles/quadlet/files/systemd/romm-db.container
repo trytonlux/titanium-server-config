@@ -13,6 +13,9 @@ Environment=MYSQL_DATABASE=romm
 Environment=MYSQL_USER=romm
 Environment=MYSQL_PASSWORD=romm
 
+HealthCmd=healthcheck.sh --connect --innodb_initialized
+Notify=healthy
+
 [Service]
 Restart=always
 TimeoutStartSec=300

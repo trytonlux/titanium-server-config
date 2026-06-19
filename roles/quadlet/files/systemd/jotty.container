@@ -15,6 +15,9 @@ Environment=HTTPS=true
 Environment=APP_URL=https://notes.titanium-server.thelux.family
 Environment=INTERNAL_API_URL=http://localhost:3000
 
+HealthCmd=wget --spider --tries=1 http://0.0.0.0:3000/api/health || exit 1
+Notify=healthy
+
 User=1000
 
 [Service]
