@@ -27,6 +27,8 @@ Notify=healthy
 Secret=romm_igdb_client_id,type=env,target=IGDB_CLIENT_ID
 Secret=romm_igdb_client_secret,type=env,target=IGDB_CLIENT_SECRET
 Secret=romm_steam_grid_api_key,type=env,target=STEAMGRIDDB_API_KEY
+Secret=romm_screenscraper_user,type=env,target=SCREENSCRAPER_USER
+Secret=romm_screenscraper_password,type=env,target=SCREENSCRAPER_PASSWORD
 Secret=romm_auth_secret_key,type=env,target=ROMM_AUTH_SECRET_KEY
 Secret=romm_auth_password,type=env,target=ROMM_AUTH_PASSWORD
 
