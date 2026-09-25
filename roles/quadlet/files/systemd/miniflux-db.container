@@ -4,9 +4,9 @@ Description=Miniflux Database
 [Container]
 Pod=miniflux.pod
 Label=io.containers.autoupdate=registry
-Image=docker.io/postgres:14-alpine
+Image=docker.io/postgres:18
 
-Volume=/storage/containers/miniflux/data:/var/lib/postgresql/data
+Volume=/storage/containers/miniflux/data:/var/lib/postgresql
 
 Environment=POSTGRES_USER=miniflux
 Environment=POSTGRES_PASSWORD=miniflux
