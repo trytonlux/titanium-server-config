@@ -11,7 +11,7 @@ Volume=/storage/containers/miniflux/data:/var/lib/postgresql/data
 Environment=POSTGRES_USER=miniflux
 Environment=POSTGRES_PASSWORD=miniflux
 
-HealthCmd=pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_USER}
+HealthCmd=pg_isready -U miniflux
 Notify=healthy
 
 [Service]
