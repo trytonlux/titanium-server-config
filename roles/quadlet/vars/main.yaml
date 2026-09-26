@@ -1,8 +1,8 @@
 quadlet_services:
   - homer
   - jellyfin
-  - jotty
   - kptv
+  - memos
   - miniflux
   - miniflux-db
   - navidrome
@@ -36,13 +36,7 @@ quadlet_secrets:
 
 quadlet_storage_dirs:
   - "jellyfin/config"
-  - "jotty/cache"
-  - "jotty/config"
-  - "jotty/data/checklists"
-  - "jotty/data/encryption"
-  - "jotty/data/notes"
-  - "jotty/data/sharing"
-  - "jotty/data/users"
+  - "memos/data"
   - "miniflux/data"
   - "navidrome/data"
   - "prowlarr/config"

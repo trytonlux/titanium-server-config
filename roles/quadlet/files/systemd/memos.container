@@ -1,0 +1,22 @@
+[Unit]
+Description=Jotty Notes and Todos
+
+[Container]
+Label=io.containers.autoupdate=registry
+Image=docker.io/neosmemo/memos:stable
+PublishPort=5230:5230
+
+Volume=/storage/containers/memos/data:/var/opt/memos
+
+Environment=MEMOS_DRIVER=sqlite
+Environment=MEMOS_INSTANCE_URL=https://notes.titanium-server.thelux.family
+
+HealthCmd=wget --no-verbose --tries=1 --spider localhost:5230/healthz
+Notify=healthy
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target default.target
