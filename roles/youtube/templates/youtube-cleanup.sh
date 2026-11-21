@@ -4,7 +4,8 @@ API_KEY="{{ youtube_jellyfin_api_key }}"
 USER_ID="{{ youtube_jellyfin_user_id }}"
 YOUTUBE_ID="{{ youtube_jellyfin_youtube_library_id }}"
 YOUTUBE_PATH="/storage/media/YouTube"
-API_ENDPOINT="localhost:8096/Users/${USER_ID}/Items?parentId=${YOUTUBE_ID}&isPlayed=true&ApiKey=${API_KEY}"
+JELLYFIN_DOMAIN="https://jellyfin.titanium-server.thelux.family"
+API_ENDPOINT="${JELLYFIN_DOMAIN}/Users/${USER_ID}/Items?parentId=${YOUTUBE_ID}&isPlayed=true&ApiKey=${API_KEY}"
 
 played_videos=$(curl -s "$API_ENDPOINT" |
     jq -r '.Items | .[] .Name')
