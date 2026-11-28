@@ -1,7 +1,6 @@
 quadlet_services:
   - homer
   - jellyfin
-  - kptv
   - memos
   - miniflux
   - miniflux-db
